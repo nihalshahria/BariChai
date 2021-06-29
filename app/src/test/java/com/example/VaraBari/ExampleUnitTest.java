@@ -1,4 +1,4 @@
-package com.example.my_activity;
+package com.example.VaraBari;
 
 import org.junit.Test;
 

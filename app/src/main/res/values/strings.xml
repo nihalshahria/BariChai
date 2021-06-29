@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">My_Activity</string>
+    <string name="app_name">Vara Bari</string>
+    <string name="username_hint">Username or Email</string>
+    <string name="Password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="signup_button">SignUp</string>
 </resources>
