@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "807514178988",
+    "project_id": "varabari-bbc22",
+    "storage_bucket": "varabari-bbc22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807514178988:android:1fccae38a094715e3ca609",
+        "android_client_info": {
+          "package_name": "com.example.VaraBari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807514178988-qo5n7i05db46l5n6mbn7k67utncvbcag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIWrjhLm-cHp_eo4vTXwQ6MOg0xgARqNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807514178988-qo5n7i05db46l5n6mbn7k67utncvbcag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
