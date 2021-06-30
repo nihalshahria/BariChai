@@ -84,7 +84,7 @@ public class Signup_Form extends AppCompatActivity {
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
-                                public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
+                                public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
                                         User user = new User(fullname, username, email, password);
                                         FirebaseDatabase.getInstance().getReference("Users")
@@ -102,14 +102,19 @@ public class Signup_Form extends AppCompatActivity {
                                             }
                                         });
                                     }else{
-                                        Toast.makeText(Signup_Form.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Signup_Form.this, "Registration is failed", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
 
+                }else{
+                    Toast.makeText(Signup_Form.this, "Passwords didn't match", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
     }
 }
+
+// Debug token nihal 65A82F97-4B8D-4D17-B89A-04D5CD5748D4
