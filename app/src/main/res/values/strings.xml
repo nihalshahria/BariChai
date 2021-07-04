@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Vara Bari</string>
-    <string name="username_hint">Username or Email</string>
+    <string name="username_hint">Email</string>
     <string name="Password">Password</string>
     <string name="login_button">Login</string>
     <string name="signup_button">SignUp</string>
+    <string name="logout_button">Sign Out</string>
+    <string name="reset_password">Reset Password</string>
 </resources>
