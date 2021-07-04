@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
-        <activity android:name=".ResetPassword"></activity>
         <activity android:name=".HomePage" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".LogInScreenActivity" />
         <activity android:name=".Signup_Form" />
         <activity
