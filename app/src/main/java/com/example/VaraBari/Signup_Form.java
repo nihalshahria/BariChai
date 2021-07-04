@@ -86,7 +86,7 @@ public class Signup_Form extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
-                                        User user = new User(fullname, username, email, password);
+                                        User user = new User(fullname, username, email);
                                         FirebaseDatabase.getInstance().getReference("Users")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                                 .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -95,6 +95,7 @@ public class Signup_Form extends AppCompatActivity {
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_SHORT).show();
                                                     progressBar.setVisibility(View.GONE);
+//                                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                                                 }else{
                                                     Toast.makeText(Signup_Form.this, "Registration failed", Toast.LENGTH_SHORT).show();
                                                     progressBar.setVisibility(View.GONE);
