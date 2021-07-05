@@ -10,14 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
         <activity android:name=".HomePage" />
-        <activity android:name=".LogInScreenActivity" />
-        <activity android:name=".Signup_Form" />
+        <activity android:name=".LogInScreenActivity"
+            android:theme="@style/AppTheme.SplashScreen"/>
+        <activity android:name=".Signup_Form"
+            android:theme="@style/AppTheme.SplashScreen"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
