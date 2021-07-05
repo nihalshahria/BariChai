@@ -28,7 +28,6 @@ public class LogInScreenActivity extends AppCompatActivity {
     private EditText loginEmail, loginPassword;
     private CardView logINButton;
     private FirebaseAuth firebaseAuth;
-
     public static String prefName = "MyPrefsfile";
 
     @Override
@@ -81,12 +80,12 @@ public class LogInScreenActivity extends AppCompatActivity {
 
 
     public void reset_password(View view) {
-//        startActivity(new Intent(getApplicationContext(), ResetPassword.class));
         EditText resetMail = new EditText(view.getContext());
         AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
         passwordResetDialog.setTitle("Reset Password");
         passwordResetDialog.setMessage("Enter your email to received reset link");
         passwordResetDialog.setView(resetMail);
+
         passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -104,6 +103,7 @@ public class LogInScreenActivity extends AppCompatActivity {
                 });
             }
         });
+
         passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
