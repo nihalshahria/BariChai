@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
-        <activity android:name=".EditUserInfo"></activity>
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".DashBoard" />
+        <activity android:name=".EditUserInfo" />
         <activity android:name=".HomePage" />
         <activity
             android:name=".LogInScreenActivity"
