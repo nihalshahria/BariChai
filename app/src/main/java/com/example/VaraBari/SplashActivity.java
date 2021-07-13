@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(LogInScreenActivity.prefName, 0);
                 boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn", false);
                 if(hasLoggedIn){
-                    Intent homeIntent = new Intent(SplashActivity.this, HomePage.class);
+                    Intent homeIntent = new Intent(SplashActivity.this, UserProfile.class);
                     startActivity(homeIntent);
                     finish();
                 }else {

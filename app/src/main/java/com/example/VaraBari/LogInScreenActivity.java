@@ -63,7 +63,7 @@ public class LogInScreenActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putBoolean("hasLoggedIn", true);
                                     editor.commit();
-                                    startActivity(new Intent(getApplicationContext(), HomePage.class));
+                                    startActivity(new Intent(getApplicationContext(), UserProfile.class));
                                     finish();
                                 } else {
                                     Toast.makeText(LogInScreenActivity.this, "Login failed or user not available", Toast.LENGTH_SHORT).show();
