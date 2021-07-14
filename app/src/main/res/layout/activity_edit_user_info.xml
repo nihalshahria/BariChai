@@ -32,6 +32,8 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
     <EditText
         android:id="@+id/edit_full_name"
         android:textSize="23sp"
@@ -75,6 +77,13 @@
         android:textColor="@color/white"
         android:hint="Address"
         android:drawableLeft="@drawable/ic_action_location"
+        />
+
+    <ProgressBar
+        android:id="@+id/edit_info_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         />
 
     <androidx.cardview.widget.CardView

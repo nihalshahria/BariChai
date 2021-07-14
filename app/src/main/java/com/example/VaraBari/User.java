@@ -1,14 +1,14 @@
 package com.example.VaraBari;
 
 public class User {
-    public String fullName, userName, email, phoneNo, address, profileImagePath;
+    public String fullName, userName, email, phoneNo, address, profileImageLink;
     public User(){
         this.fullName = "";
         this.userName = "";
         this.email = "";
         this.phoneNo = "";
         this.address = "";
-        this.profileImagePath = "";
+        this.profileImageLink = "";
     }
     public User(String fullName, String userName, String email){
         this.fullName = fullName;
@@ -16,6 +16,6 @@ public class User {
         this.email = email;
         this.phoneNo = "";
         this.address = "";
-        this.profileImagePath = "";
+        this.profileImageLink = "";
     }
 }

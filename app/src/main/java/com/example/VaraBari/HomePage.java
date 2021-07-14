@@ -55,12 +55,6 @@ public class HomePage extends AppCompatActivity {
     @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        if(menu instanceof MenuBuilder){
-//            ((MenuBuilder)menu).setOptionalIconsVisible(true);
-//        }
-//        MenuInflater inFlater = getMenuInflater();
-//        inFlater.inflate(R.menu.top_right_corner_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
         MenuInflater inFlater = getMenuInflater();
         inFlater.inflate(R.menu.top_right_corner_menu, menu);
         return super.onCreateOptionsMenu(menu);
