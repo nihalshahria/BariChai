@@ -25,9 +25,14 @@ import com.google.firebase.auth.FirebaseUser;
 import org.jetbrains.annotations.NotNull;
 
 public class LogInScreenActivity extends AppCompatActivity {
+
+    // Views
     private EditText loginEmail, loginPassword;
     private CardView logINButton;
+
+    // Firebase
     private FirebaseAuth firebaseAuth;
+
     public static String prefName = "MyPrefsfile";
 
     @Override

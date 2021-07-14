@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,13 +21,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 public class UserProfile extends AppCompatActivity {
     public TextView fullName, email, phoneNo, address;
-    private String _fullName, _phoneNo, _address, _email;
+    private String _profileImageLink, _fullName, _phoneNo, _address, _email;
+    private ImageView profileImage;
     private DatabaseReference myRef;
+    private String uuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,9 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         myRef = FirebaseDatabase.getInstance().getReference("Users");
+        uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        profileImage = (ImageView)findViewById(R.id.profile_pic);
         fullName = (TextView)findViewById(R.id.name);
         email = (TextView)findViewById(R.id.mail);
         phoneNo = (TextView)findViewById(R.id.phone_number);
@@ -45,10 +51,15 @@ public class UserProfile extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                _fullName = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("fullName").getValue(String.class);
-                _phoneNo = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("phoneNo").getValue(String.class);
-                _address = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("address").getValue(String.class);
-                _email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").getValue(String.class);
+                _fullName = dataSnapshot.child(uuid).child("fullName").getValue(String.class);
+                _phoneNo = dataSnapshot.child(uuid).child("phoneNo").getValue(String.class);
+                _address = dataSnapshot.child(uuid).child("address").getValue(String.class);
+                _email = dataSnapshot.child(uuid).child("email").getValue(String.class);
+                _profileImageLink = dataSnapshot.child(uuid).child("profileImageLink").getValue(String.class);
+
+                if(!_profileImageLink.isEmpty()){
+                    Picasso.get().load(_profileImageLink).into(profileImage);
+                }
 
                 if(!_fullName.isEmpty())fullName.setText(_fullName);
                 if(!_email.isEmpty())email.setText(_email);
