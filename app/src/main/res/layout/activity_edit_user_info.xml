@@ -8,106 +8,123 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".EditUserInfo">
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <include layout="@layout/toolbar" />
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="100dp"
-            app:cardBackgroundColor="#01D0FA"
-            app:cardCornerRadius="100dp">
-
-            <ImageView
-                android:id="@+id/edit_profile_pic"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/edit_user_photo" />
-        </androidx.cardview.widget.CardView>
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-    <EditText
-        android:id="@+id/edit_full_name"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:drawableTint="@color/Black"
-        android:textColorHint="@color/DarkSlateGray"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:hint="Full Name"
-        android:drawableLeft="@drawable/ic_action_user2"
-        />
-
-    <EditText
-        android:id="@+id/edit_user_phone_no"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:drawableTint="@color/Black"
-        android:textColorHint="@color/DarkSlateGray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:hint="Phone number"
-        android:drawableLeft="@drawable/ic_action_phn"
-        />
-
-    <EditText
-        android:id="@+id/edit_user_address"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="45dp"
-        android:layout_marginHorizontal="20dp"
-        android:drawableTint="@color/Black"
-        android:textColorHint="@color/DarkSlateGray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:hint="Address"
-        android:drawableLeft="@drawable/ic_action_location"
-        />
-
-    <ProgressBar
-        android:id="@+id/edit_info_progressbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/edit_user_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/LightCyan"
-        android:layout_gravity="center_horizontal"
-        app:cardCornerRadius="40dp"
-        android:layout_marginTop="20dp">
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_user_back"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="100dp"
+                    app:cardBackgroundColor="#00000000"
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:id="@+id/edit_profile_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/edit_user_photo" />
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <EditText
+                android:id="@+id/edit_full_name"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="Full Name"
+                android:drawableLeft="@drawable/profile_icon"
+                />
+
+            <EditText
+                android:id="@+id/edit_user_phone_no"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="Phone number"
+                android:drawableLeft="@drawable/ic_action_phn"
+                />
+
+            <EditText
+                android:id="@+id/edit_user_address"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="Address"
+                android:drawableLeft="@drawable/ic_action_location"
+                />
+
+            <ProgressBar
+                android:id="@+id/edit_info_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_user_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:paddingVertical="20dp"
-                android:paddingHorizontal="35dp"
-                android:textColor="@color/Indigo"
-                android:onClick="saveUpdatedInfo"
-                />
+                app:cardBackgroundColor="@color/LightCyan"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="40dp"
+                android:layout_marginTop="20dp">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:paddingVertical="20dp"
+                        android:paddingHorizontal="35dp"
+                        android:textColor="@color/Indigo"
+                        android:onClick="saveUpdatedInfo"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,7 +3,10 @@ package com.example.VaraBari;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,6 +34,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,11 +45,13 @@ public class EditUserInfo extends AppCompatActivity {
     private EditText editPhoneNo, editAddress, editFullName;
     private ImageView editProfileImage;
     private ProgressBar progressBar;
+    private Toolbar toolbar;
 
     private String _fullName, _phoneNo, _address, _profileImageLink;
     private String uuid;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;
+    private Uri uri;
 
     // Firebase
     private DatabaseReference databaseReference;
@@ -66,7 +73,8 @@ public class EditUserInfo extends AppCompatActivity {
         editPhoneNo = (EditText)findViewById(R.id.edit_user_phone_no);
         editAddress = (EditText)findViewById(R.id.edit_user_address);
         progressBar = (ProgressBar)findViewById(R.id.edit_info_progressbar);
-
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //        showPreviousData();
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -122,6 +130,7 @@ public class EditUserInfo extends AppCompatActivity {
             Picasso.get().load(imageUri).into(editProfileImage);
         }
     }
+
 
     public void saveUpdatedInfo(View view) {
         if(imageUploadTask != null && imageUploadTask.isInProgress()){
