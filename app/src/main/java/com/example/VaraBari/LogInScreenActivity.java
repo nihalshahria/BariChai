@@ -71,7 +71,7 @@ public class LogInScreenActivity extends AppCompatActivity {
                                     startActivity(new Intent(getApplicationContext(), DashBoard.class));
                                     finish();
                                 } else {
-                                    Toast.makeText(LogInScreenActivity.this, "Login failed or user not available", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LogInScreenActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

@@ -95,15 +95,14 @@ public class Signup_Form extends AppCompatActivity {
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_SHORT).show();
                                                     progressBar.setVisibility(View.GONE);
-//                                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                                                 }else{
-                                                    Toast.makeText(Signup_Form.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                     progressBar.setVisibility(View.GONE);
                                                 }
                                             }
                                         });
                                     }else{
-                                        Toast.makeText(Signup_Form.this, "Registration is failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Signup_Form.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
