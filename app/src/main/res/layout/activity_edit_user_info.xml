@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/edit_user_back"
+    android:background="@drawable/new_ad_form_background"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".EditUserInfo">
@@ -120,7 +120,6 @@
                         />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.cardview.widget.CardView>
-
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
