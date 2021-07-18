@@ -6,5 +6,13 @@
     <string name="signup_button">SignUp</string>
     <string name="logout_button">Sign Out</string>
     <string name="reset_password">Reset Password</string>
-    <string name="checkbox">Negotiable </string>
+    <string name="house_image">House images:</string>
+    <string name="size">Area (Square feet)</string>
+    <string name="title">Title (Give any)</string>
+    <string name="house_description">House description</string>
+    <string name="address">House address</string>
+    <string name="rent">Rent</string>
+    <string name="email">Email</string>
+    <string name="phone_no">Phone no.</string>
+    <string name="submit">Submit</string>
 </resources>

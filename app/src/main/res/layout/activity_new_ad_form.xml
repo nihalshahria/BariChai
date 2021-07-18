@@ -17,11 +17,11 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
-                android:text="Insert images of house:"
+                android:paddingVertical="20dp"
+                android:text="@string/house_image"
                 android:textColor="@color/DarkSlateGray"
                 android:textSize="23sp"
                 android:textStyle="bold" />
@@ -99,8 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/Crimson"
-                android:hint="Title"
-                android:background="#00000"
+                android:hint="@string/title"
+                android:background="#00000000"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -122,9 +122,9 @@
                 android:drawableTint="@color/Black"
                 android:textColorHint="@color/DarkSlateGray"
                 android:textColor="@color/Crimson"
-                android:hint="House description"
+                android:hint="@string/house_description"
                 android:inputType="textMultiLine"
-                android:background="#00000"
+                android:background="#00000000"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -139,6 +139,48 @@
                 android:id="@+id/new_ad_form_address"
                 android:textSize="23sp"
                 android:textStyle="bold"
+                android:layout_marginBottom="25dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="@string/address"
+                android:background="#00000000"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Specifications"
+            android:textSize="27sp"
+            android:layout_marginHorizontal="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo">
+        </TextView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/black"
+        >
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_size"
+                android:textSize="23sp"
+                android:textStyle="bold"
                 android:layout_marginBottom="15dp"
                 android:layout_marginHorizontal="20dp"
                 android:drawableTint="@color/Black"
@@ -146,8 +188,194 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/Crimson"
-                android:hint="Address"
-                android:background="#00000"
+                android:hint="@string/size"
+                android:background="#00000000"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_bed_room"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Bedroom"
+                android:background="#00000000"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_attach_bath"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Attach bath"
+                android:background="#00000000"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/DarkSlateGray"-->
+<!--            >-->
+
+<!--&lt;!&ndash;            <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/new_ad_form_kitchen"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="23sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginBottom="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginHorizontal="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:drawableTint="@color/Black"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColorHint="@color/DarkSlateGray"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/Crimson"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="Kitchen"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="#00000"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:inputType="number"&ndash;&gt;-->
+<!--&lt;!&ndash;                />&ndash;&gt;-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_balcony"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Belcony"
+                android:background="#00000000"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <CheckBox android:id="@+id/new_ad_form_drawing_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Drawing room available"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="23sp"
+                android:textColor="@color/DimGray"
+                android:textStyle="bold"
+                android:onClick="onCheckboxClicked"
+                tools:ignore="OnClick"
+                android:layout_marginBottom="15dp"/>
+
+            <CheckBox android:id="@+id/new_ad_form_dining_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dining room available"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="23sp"
+                android:textColor="@color/DimGray"
+                android:textStyle="bold"
+                android:onClick="onCheckboxClicked"
+                tools:ignore="OnClick"
+                android:layout_marginBottom="15dp"/>
+
+            <CheckBox android:id="@+id/new_ad_form_store_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Store room available"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="23sp"
+                android:textColor="@color/DimGray"
+                android:textStyle="bold"
+                android:onClick="onCheckboxClicked"
+                tools:ignore="OnClick"
+                android:layout_marginBottom="15dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_floor_level"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Floor level"
+                android:background="#00000000"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_available_date"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Available from"
+                android:background="#00000000"
+                android:inputType="date"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -169,56 +397,118 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/Crimson"
-                android:hint="Rent"
-                android:background="#00000"
+                android:hint="@string/rent"
+                android:background="#00000000"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <CheckBox android:id="@+id/new_ad_form_negotiate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Negotiable"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="23sp"
+            android:textColor="@color/DimGray"
+            android:textStyle="bold"
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Info"
+            android:textSize="27sp"
+            android:layout_marginHorizontal="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo">
+        </TextView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/black"
             >
-
-            <CheckBox android:id="@+id/new_ad_form_checkbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/checkbox"
-                android:layout_marginHorizontal="20dp"
-                android:textSize="23sp"
-                android:textColor="@color/DimGray"
-                android:textStyle="bold"
-                android:onClick="onCheckboxClicked"
-                tools:ignore="OnClick"
-                android:layout_marginBottom="20dp"/>
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_email"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Email"
+                android:background="#00000000"
+                android:inputType="textEmailAddress"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkSlateGray"
+            >
+
+            <EditText
+                android:id="@+id/new_ad_form_contact_no"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:drawableTint="@color/Black"
+                android:textColorHint="@color/DarkSlateGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Crimson"
+                android:hint="Phone no."
+                android:background="#00000000"
+                android:inputType="phone"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/edit_user_save"
+            android:id="@+id/new_ad_form_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white"
             android:layout_gravity="center_horizontal"
             app:cardCornerRadius="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="35dp"
-                android:paddingVertical="20dp"
-                android:text="Submit"
-                android:textColor="@color/Indigo"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="35dp"
+                    android:paddingVertical="20dp"
+                    android:text="@string/submit"
+                    android:textColor="@color/Indigo"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
         </androidx.cardview.widget.CardView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
