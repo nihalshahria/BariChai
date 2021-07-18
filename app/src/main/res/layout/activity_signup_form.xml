@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:weightSum="4.6"
-    tools:context=".Signup_Form">
+    tools:context=".Activities.Signup_Form">
 
 
     <ImageView

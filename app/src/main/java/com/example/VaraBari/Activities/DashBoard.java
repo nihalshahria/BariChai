@@ -1,4 +1,4 @@
-package com.example.VaraBari;
+package com.example.VaraBari.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,13 +11,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.VaraBari.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -110,6 +110,10 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_profile:
                 Intent intent = new Intent(DashBoard.this, UserProfile.class);
                 startActivity(intent);
+                break;
+            case R.id.nav_publish:
+                Intent newAd = new Intent(DashBoard.this, NewAdForm.class);
+                startActivity(newAd);
                 break;
             case R.id.nav_help:
 //                Go to user-manual page

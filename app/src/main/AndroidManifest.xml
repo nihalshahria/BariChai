@@ -14,13 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
-        <activity android:name=".NewAdForm"></activity>
-        <activity android:name=".UserProfile"></activity>
-        <activity android:name=".DashBoard" />
-        <activity android:name=".EditUserInfo" />
-        <activity android:name=".LogInScreenActivity"/>
-        <activity android:name=".Signup_Form"/>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Activities.NewAdForm"></activity>
+        <activity android:name=".Activities.UserProfile"></activity>
+        <activity android:name=".Activities.DashBoard" />
+        <activity android:name=".Activities.EditUserInfo" />
+        <activity android:name=".Activities.LogInScreenActivity"/>
+        <activity android:name=".Activities.Signup_Form"/>
+        <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,12 +1,10 @@
-package com.example.VaraBari;
+package com.example.VaraBari.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.VaraBari.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -34,8 +33,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -101,7 +98,7 @@ public class EditUserInfo extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                Toast.makeText(EditUserInfo.this, "Error!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditUserInfo.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -131,12 +128,14 @@ public class EditUserInfo extends AppCompatActivity {
         }
     }
 
-
     public void saveUpdatedInfo(View view) {
         if(imageUploadTask != null && imageUploadTask.isInProgress()){
             Toast.makeText(this, "Upload in progress", Toast.LENGTH_SHORT).show();
         }else{
-            if(isImageChanged() || isChanged(editFullName, _fullName, "fullName") || isChanged(editPhoneNo, _phoneNo, "phoneNo") || isChanged(editAddress, _address, "address")){
+            if(isImageChanged()
+                    || isChanged(editFullName, _fullName, "fullName")
+                    || isChanged(editPhoneNo, _phoneNo, "phoneNo")
+                    || isChanged(editAddress, _address, "address")){
                 Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "No change detected", Toast.LENGTH_SHORT).show();

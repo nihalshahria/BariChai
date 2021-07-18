@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_ad_form_background"
+    android:background="@drawable/edit_user_back"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".EditUserInfo">
+    tools:context=".Activities.EditUserInfo">
     <include layout="@layout/toolbar" />
     <ScrollView
         android:layout_width="match_parent"
@@ -15,21 +15,20 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_user_back"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="300dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="50dp"
                     app:cardBackgroundColor="#00000000"
                     app:cardCornerRadius="100dp">
 

@@ -1,4 +1,4 @@
-package com.example.VaraBari;
+package com.example.VaraBari.Objects;
 
 public class User {
     public String fullName, userName, email, phoneNo, address, profileImageLink;

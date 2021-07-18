@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group>
         <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard"
@@ -18,13 +18,14 @@
     <item
         android:title="Profile">
         <menu>
-            <group android:checkableBehavior="single">
+            <group>
                 <item
                     android:id="@+id/nav_profile"
                     android:title="Profile"
                     android:icon="@drawable/profile_icon_black"/>
                 <item
-                    android:title="Item 2"
+                    android:id="@+id/nav_publish"
+                    android:title="Publish"
                     android:icon="@drawable/house_icon"/>
             </group>
         </menu>

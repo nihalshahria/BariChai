@@ -10,12 +10,13 @@
     <string name="house_image">House images:</string>
     <string name="size">Area (Square feet)</string>
     <string name="title">Title (Give any)</string>
-    <string name="house_description">House description</string>
-    <string name="address">House address</string>
+    <string name="house_description">Description</string>
+    <string name="address">Address</string>
     <string name="rent">Rent</string>
     <string name="email">Email</string>
     <string name="phone_no">Phone no.</string>
     <string name="submit">Submit</string>
+
     <string name="search_text">Search ...</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
