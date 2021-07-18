@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:hint="Phone number"
-                android:drawableLeft="@drawable/ic_action_phn"
+                android:drawableLeft="@drawable/phone_icon"
                 />
 
             <EditText
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:hint="Address"
-                android:drawableLeft="@drawable/ic_action_location"
+                android:drawableLeft="@drawable/location_icon"
                 />
 
             <ProgressBar
