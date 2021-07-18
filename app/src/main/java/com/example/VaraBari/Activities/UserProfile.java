@@ -1,10 +1,9 @@
-package com.example.VaraBari;
+package com.example.VaraBari.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -15,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.VaraBari.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -155,15 +156,16 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
 
                 final EditText currentPassword = new EditText(context);
                 currentPassword.setHint("Current Password");
+                currentPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 layout.addView(currentPassword);
 
                 final EditText changePassword = new EditText(context);
                 changePassword.setHint("New Password");
+                changePassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 layout.addView(changePassword);
 
                 final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(context);
                 passwordResetDialog.setTitle("Change Password?");
-//                passwordResetDialog.setMessage("Enter new password");
                 passwordResetDialog.setView(layout);
 
                 passwordResetDialog.setPositiveButton("Yes",

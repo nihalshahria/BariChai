@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/nav_hoise_icon"/>
+            android:src="@drawable/nav_house_icon"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

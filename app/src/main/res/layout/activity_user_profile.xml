@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".UserProfile"
+    tools:context=".Activities.UserProfile"
     tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
@@ -20,7 +20,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background02"
+        android:background="@drawable/user_profile_page_background"
         android:orientation="vertical">
 
         <include layout="@layout/toolbar" />
@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/background01" />
+                    android:src="@drawable/profile_page_profile_sample" />
             </androidx.cardview.widget.CardView>
 
 
@@ -144,7 +144,8 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <ImageView
                     android:layout_width="35dp"
