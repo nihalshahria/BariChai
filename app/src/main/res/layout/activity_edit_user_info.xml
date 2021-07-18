@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_ad_form_background"
+    android:background="@drawable/edit_user_back"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".EditUserInfo">
