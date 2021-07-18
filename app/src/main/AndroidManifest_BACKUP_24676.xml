@@ -3,9 +3,6 @@
     package="com.example.VaraBari">
     
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
 
     <application
         android:allowBackup="true"
@@ -14,20 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
+
         <activity android:name=".NewAdForm"></activity>
+
         <activity android:name=".UserProfile"></activity>
         <activity android:name=".DashBoard" />
+
         <activity android:name=".EditUserInfo" />
-        <activity android:name=".LogInScreenActivity"/>
-        <activity android:name=".Signup_Form"/>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".HomePage" />
+        <activity
+            android:name=".LogInScreenActivity"
+            android:theme="@style/AppTheme.SplashScreen" />
+        <activity
+            android:name=".Signup_Form"
+            android:theme="@style/AppTheme.SplashScreen" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
     </application>
 
 </manifest>
