@@ -237,6 +237,8 @@ public class NewAdForm extends AppCompatActivity {
         house.diningRoomAvailable = diningRoom.isChecked();
         house.storeRoomAvailable = storeRoom.isChecked();
         house.negotiable = negotiable.isChecked();
+
+        // Create node in Database
         databaseReference.child(uuid).child(key).setValue(house)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -254,7 +256,7 @@ public class NewAdForm extends AppCompatActivity {
             }
         });
 
-
+        // Image upload
         for (uploadCount = 0; uploadCount < imageUri.size(); uploadCount++) {
             Uri uploadUri = imageUri.get(uploadCount);
             StorageReference fileReference = storageReference.child(key).child((uploadCount) + "."
@@ -333,6 +335,5 @@ public class NewAdForm extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(contentResolver.getType(uri));
     }
-
 
 }
