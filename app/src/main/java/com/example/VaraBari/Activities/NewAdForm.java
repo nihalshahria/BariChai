@@ -78,7 +78,7 @@ public class NewAdForm extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference("House_Images");
         uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        key = UUID.randomUUID().toString();
+//        key = UUID.randomUUID().toString();
         databaseReference = FirebaseDatabase.getInstance().getReference("Houses");
 
         // Hooks
@@ -239,6 +239,9 @@ public class NewAdForm extends AppCompatActivity {
         house.negotiable = negotiable.isChecked();
 
         // Create node in Database
+        key = databaseReference.child(uuid).push().getKey();
+
+        ///////////////////////
         databaseReference.child(uuid).child(key).setValue(house)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
