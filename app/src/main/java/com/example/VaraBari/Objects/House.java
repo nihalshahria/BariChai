@@ -1,40 +1,39 @@
 package com.example.VaraBari.Objects;
 
+import java.util.ArrayList;
+
 public class House {
-    public String image1, image2, image3, image4, image5;
+//    public String[] image = new String[5];
+    public ArrayList<String>image = new ArrayList<String>();
 
     public String title, description, address;
 
     public double area;
-    public int bedRoom, attachBath, belcony;
+    public int bedRoom, attachBath, balcony;
     public boolean drawingRoomAvailable, diningRoomAvailable, storeRoomAvailable;
-    public int floorLevel, rent;
-    public String availableFrom;
+    public int  rent;
+    public String availableFrom, floorLevel;
     public boolean negotiable;
 
     public String email, phoneNo;
 
     public House() {
-        image1 = "";
-        image2 = "";
-        image3 = "";
-        image4 = "";
-        image5 = "";
         title = "";
         description = "";
         address = "";
         area = 0.0;
         bedRoom = 0;
         attachBath = 0;
-        belcony = 0;
+        balcony = 0;
         drawingRoomAvailable = false;
         diningRoomAvailable = false;
         storeRoomAvailable = false;
-        floorLevel = 0;
+        floorLevel = "";
         rent = 0;
         availableFrom = "";
         negotiable = false;
         email = "";
         phoneNo = "";
     }
+
 }
