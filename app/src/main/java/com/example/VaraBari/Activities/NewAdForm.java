@@ -59,12 +59,12 @@ public class NewAdForm extends AppCompatActivity {
 
     private int uploadCount = 0;
     private static final int PICK_IMAGE_REQUEST_CODE = 1;
-    //    public ArrayList<Integer> PICK_IMAGE_REQUEST_CODE = new ArrayList<>();
     public ArrayList<Uri> imageUri = new ArrayList<Uri>();
 
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
     private StorageTask imageUploadTask;
+
     private String uuid;
     private String key;
     private House house = new House();
@@ -98,7 +98,7 @@ public class NewAdForm extends AppCompatActivity {
         area = (EditText) findViewById(R.id.new_ad_form_area);
         bedroom = (EditText) findViewById(R.id.new_ad_form_bed_room);
         attachBath = (EditText) findViewById(R.id.new_ad_form_attach_bath);
-        balcony = (EditText) findViewById(R.id.new_ad_form_balcony)
+        balcony = (EditText) findViewById(R.id.new_ad_form_balcony);
         floorLvl = (EditText) findViewById(R.id.new_ad_form_floor_level);
         availableFrom = (EditText) findViewById(R.id.new_ad_form_available_date);
         rent = (EditText) findViewById(R.id.new_ad_form_rent);
@@ -139,57 +139,127 @@ public class NewAdForm extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.show();
-                publishNewAd();
+                if(imageUploadTask != null && imageUploadTask.isInProgress()){
+                    Toast.makeText(NewAdForm.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                }else {
+                    publishNewAd();
+                }
             }
         });
     }
 
     private void publishNewAd() {
-        String _title, _description, _address, _area, _bedroom, _attachBath, _floorLvl, _availableFrom, _rent, _email, _phoneNo, _balcony;
+        String _area, _bedroom, _attachBath, _rent, _balcony;
         house.title = title.getText().toString();
         house.description = description.getText().toString();
         house.address = address.getText().toString();
         house.email = email.getText().toString();
         house.phoneNo = phoneNo.getText().toString();
+        house.floorLevel = floorLvl.getText().toString();
         _area = area.getText().toString();
         _bedroom = bedroom.getText().toString();
         _attachBath = attachBath.getText().toString();
-        _floorLvl = floorLvl.getText().toString();
         _rent = rent.getText().toString();
         _balcony = balcony.getText().toString();
+        house.availableFrom = availableFrom.getText().toString();
+        if(imageUri.size()==0){
+            Toast.makeText(this, "Please select five images", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (TextUtils.isEmpty(house.title)) {
             title.setError("Title is required");
             title.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(house.description)) {
-            description.setError("Full name is required");
+            description.setError("Description is required");
             description.requestFocus();
             return;
         }
-        if (TextUtils.isEmpty(_title)) {
-            title.setError("Full name is required");
-            title.requestFocus();
+        if (TextUtils.isEmpty(house.address)) {
+            address.setError("Adress is required");
+            address.requestFocus();
             return;
         }
-//        house.title = title.getText().toString();
-//        house.area = Double.parseDouble(area.getText().toString());
-//        house.bedRoom = Integer.parseInt(bedroom.getText().toString());
-//        house.attachBath = Integer.parseInt(attachBath.getText().toString());
-//        house.floorLevel = floorLvl.getText().toString();
-//        house.rent = Integer.parseInt(rent.getText().toString());
+        if (TextUtils.isEmpty(_area)) {
+            area.setError("Area is required");
+            area.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(_bedroom)) {
+            bedroom.setError("Number of bedroom is required");
+            bedroom.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(_attachBath)) {
+            attachBath.setError("Number of attached bath is required");
+            attachBath.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(_balcony)) {
+            balcony.setError("Number of balcony is required");
+            balcony.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(house.floorLevel)) {
+            floorLvl.setError("Floor level is required");
+            floorLvl.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(house.availableFrom)) {
+            availableFrom.setError("Title is required");
+            availableFrom.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(_rent)) {
+            rent.setError("Rent is required");
+            rent.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(house.email)) {
+            email.setError("Email is required");
+            email.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(house.phoneNo)) {
+            phoneNo.setError("Phone number is required");
+            phoneNo.requestFocus();
+            return;
+        }
+        
+        house.area = Double.parseDouble(_area);
+        house.bedRoom = Integer.parseInt(_bedroom);
+        house.attachBath = Integer.parseInt(_attachBath);
+        house.balcony = Integer.parseInt(_balcony);
+        house.floorLevel = floorLvl.getText().toString();
+        house.rent = Integer.parseInt(rent.getText().toString());
         house.drawingRoomAvailable = drawingRoom.isChecked();
         house.diningRoomAvailable = diningRoom.isChecked();
         house.storeRoomAvailable = storeRoom.isChecked();
-        _negotiable = negotiable.isChecked();
-        _availableFrom = availableFrom.getText().toString();
+        house.negotiable = negotiable.isChecked();
+        databaseReference.child(uuid).child(key).setValue(house)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(NewAdForm.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         for (uploadCount = 0; uploadCount < imageUri.size(); uploadCount++) {
             Uri uploadUri = imageUri.get(uploadCount);
             StorageReference fileReference = storageReference.child(key).child((uploadCount) + "."
                     + getFileExtension(imageUri.get(uploadCount)));
-            fileReference.putFile(uploadUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            imageUploadTask = fileReference.putFile(uploadUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -197,40 +267,36 @@ public class NewAdForm extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
                             String url = String.valueOf(uri);
                             house.image.add(url);
+                            databaseReference.child(uuid).child(key).child("image").setValue(house.image);
+//                            databaseReference.child(uuid).child(key).child("image").child(Integer.toString(uploadCount)).setValue(url);
+//                            if(uploadCount+1==imageUri.size()){
+//                                databaseReference.child(uuid).child(key)
+//                                        .setValue(house).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
+//                                        if (task.isSuccessful()) {
+//                                            progressDialog.dismiss();
+//                                            Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
+//                                        } else {
+//                                            progressDialog.dismiss();
+//                                            Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    }
+//                                }).addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull @NotNull Exception e) {
+//                                        progressDialog.dismiss();
+//                                        Toast.makeText(NewAdForm.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                            }
                         }
                     });
                 }
             });
         }
-
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                databaseReference.child(uuid).child(key)
-                        .setValue(house).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            progressDialog.dismiss();
-                            Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
-                        } else {
-                            progressDialog.dismiss();
-                            Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull @NotNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(NewAdForm.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }, 12000);
-
+        house.image.clear();
     }
-
 
     // Image Picker
     public void openFileChooser(View view) {
