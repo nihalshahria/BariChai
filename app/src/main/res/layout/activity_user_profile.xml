@@ -20,7 +20,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/user_profile_page_background"
+        android:background="@drawable/gradient_background"
         android:orientation="vertical">
 
         <include layout="@layout/toolbar" />
@@ -55,7 +55,8 @@
             android:gravity="center"
             android:text="Full name"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
