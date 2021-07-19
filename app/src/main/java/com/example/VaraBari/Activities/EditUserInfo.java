@@ -162,7 +162,7 @@ public class EditUserInfo extends AppCompatActivity {
 
     private boolean isImageChanged(){
         if(imageUri != null){
-            StorageReference fileReference = storageReference.child(System.currentTimeMillis() + "."
+            StorageReference fileReference = storageReference.child(uuid + "."
             + getFileExtension(imageUri));
             imageUploadTask = fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
