@@ -69,7 +69,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         protected FilterResults performFiltering(CharSequence constraint) {
             ArrayList<House> filteredList = new ArrayList<>();
             if(constraint == null || constraint.length()== 0){
-//                filteredList.addAll(listFull);
                 filteredList = listFull;
             }else{
                 String filterPattern = constraint.toString().toLowerCase().trim();
