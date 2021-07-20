@@ -8,7 +8,7 @@
     android:id="@+id/drawer_layout_dashboard"
     tools:context=".Activities.DashBoard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="end">
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -25,26 +25,6 @@
 
         <include layout="@layout/toolbar"/>
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="10dp"-->
-<!--            android:gravity="center_vertical">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:src="@drawable/menu_icon"-->
-<!--                android:layout_alignParentLeft="true"/>-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:src="@drawable/add_icon"-->
-<!--                android:layout_alignParentRight="true"/>-->
-
-<!--        </RelativeLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -59,6 +39,7 @@
                 android:layout_centerHorizontal="true"/>
 
             <RelativeLayout
+                android:id="@+id/dashboard_searchbar"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/app_name"
@@ -83,10 +64,33 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboard_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/dashboard_searchbar"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="30dp"
+                    android:layout_alignParentRight="true"
+                    app:cardCornerRadius="50dp"
+                    android:elevation="8dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/add_icon"
+                        android:onClick="publish"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
         </RelativeLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
