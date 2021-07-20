@@ -98,7 +98,7 @@ public class NewAdForm extends AppCompatActivity {
         area = (EditText) findViewById(R.id.new_ad_form_area);
         bedroom = (EditText) findViewById(R.id.new_ad_form_bed_room);
         attachBath = (EditText) findViewById(R.id.new_ad_form_attach_bath);
-        balcony = (EditText) findViewById(R.id.new_ad_form_balcony)
+        balcony = (EditText) findViewById(R.id.new_ad_form_balcony);
         floorLvl = (EditText) findViewById(R.id.new_ad_form_floor_level);
         availableFrom = (EditText) findViewById(R.id.new_ad_form_available_date);
         rent = (EditText) findViewById(R.id.new_ad_form_rent);
