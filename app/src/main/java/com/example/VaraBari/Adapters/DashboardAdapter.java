@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,15 +20,18 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
-public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder> {
+public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder> implements Filterable {
 
     Context context;
     ArrayList<House>list;
+    ArrayList<House>listFull;
 
     public DashboardAdapter(Context context, ArrayList<House> list) {
         this.context = context;
         this.list = list;
+        listFull = list;
     }
 
     @NonNull
@@ -53,6 +58,40 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     public int getItemCount() {
         return list.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return houseFilter;
+    }
+
+    private Filter houseFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<House> filteredList = new ArrayList<>();
+            if(constraint == null || constraint.length()== 0){
+//                filteredList.addAll(listFull);
+                filteredList = listFull;
+            }else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for(House house: listFull){
+                    if(house.title.toLowerCase().contains(filterPattern)){
+                        filteredList.add(house);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            list.clear();
+//            list.addAll((ArrayList) results.values);
+            list = (ArrayList<House>)results.values;
+            notifyDataSetChanged();
+        }
+    };
 
     public static class DashboardViewHolder extends RecyclerView.ViewHolder{
 
