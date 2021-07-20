@@ -8,7 +8,7 @@
     <string name="reset_password">Reset Password</string>
   
     <string name="house_image">House images:</string>
-    <string name="size">Area (Square feet)</string>
+    <string name="size">Area (Sqft)</string>
     <string name="title">Title (Give any)</string>
     <string name="house_description">Description</string>
     <string name="address">Address</string>

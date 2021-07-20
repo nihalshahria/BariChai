@@ -8,7 +8,7 @@
     android:id="@+id/drawer_layout_dashboard"
     tools:context=".Activities.DashBoard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="end">
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -21,72 +21,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/log_screen_background">
+        android:background="@drawable/gradient_background">
 
         <include layout="@layout/toolbar"/>
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="10dp"-->
-<!--            android:gravity="center_vertical">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:src="@drawable/menu_icon"-->
-<!--                android:layout_alignParentLeft="true"/>-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:src="@drawable/add_icon"-->
-<!--                android:layout_alignParentRight="true"/>-->
-
-<!--        </RelativeLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/app_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:layout_centerHorizontal="true"/>
+            <RelativeLayout
+                android:id="@+id/dashboard_searchbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:elevation="10dp">
+                <EditText
+                    android:id="@+id/dashboard_searchview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/search_text"
+                    android:textSize="18sp"
+                    android:textColorHint="@color/black"
+                    android:backgroundTint="@color/black"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:drawableEnd="@drawable/search_icon"
+                    android:layout_marginHorizontal="10dp"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboard_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/dashboard_searchbar"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@+id/app_name"
-                android:background="@color/white"
-                android:layout_marginHorizontal="30dp"
-                android:elevation="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/search_text"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"/>
-
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/search_icon"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="30dp"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"/>
+                    app:cardCornerRadius="50dp"
+                    android:elevation="8dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/add_icon"
+                        android:onClick="publish"/>
+                </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </RelativeLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
