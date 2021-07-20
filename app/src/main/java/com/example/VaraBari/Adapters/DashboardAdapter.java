@@ -54,6 +54,39 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         return list.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return houseFilter;
+    }
+
+    private Filter houseFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<House> filteredList = new ArrayList<>();
+            if(constraint == null || constraint.length()== 0){
+                filteredList = listFull;
+            }else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for(House house: listFull){
+                    if(house.title.toLowerCase().contains(filterPattern)){
+                        filteredList.add(house);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            list.clear();
+//            list.addAll((ArrayList) results.values);
+            list = (ArrayList<House>)results.values;
+            notifyDataSetChanged();
+        }
+    };
+
     public static class DashboardViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;

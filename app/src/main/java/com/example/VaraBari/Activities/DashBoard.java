@@ -92,12 +92,20 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
             }
 
+
+        // Searchbar
+        searchView = (EditText)findViewById(R.id.dashboard_searchview);
+        searchView.addTextChangedListener(new TextWatcher() {
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
                 Toast.makeText(DashBoard.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
+        ////////////////////////////////////
+
+
+        // navigation drawer
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_dashboard);
         navigationView = (NavigationView) findViewById(R.id.nav_view_dashboard);
@@ -113,6 +121,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        ///////////////////////////////////////////////////////////////////
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -141,6 +150,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 
+    // navigation drawer
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()) {
