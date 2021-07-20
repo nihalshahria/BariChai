@@ -5,8 +5,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,18 +18,15 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
-public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder> implements Filterable {
+public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder> {
 
     Context context;
     ArrayList<House>list;
-    ArrayList<House>listFull;
 
     public DashboardAdapter(Context context, ArrayList<House> list) {
         this.context = context;
         this.list = list;
-        listFull = list;
     }
 
     @NonNull
