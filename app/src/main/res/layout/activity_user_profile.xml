@@ -55,7 +55,7 @@
             android:layout_height="70dp"
             android:gravity="center"
             android:text="Full name"
-            android:textColor="@color/white"
+            android:textColor="@color/Indigo"
             android:textSize="30sp"
             />
 
@@ -80,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Email"
-                    android:textColor="@color/white"
+                    android:textColor="@color/Indigo"
                     android:textSize="25sp"
                     android:textStyle="" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -100,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Phone no"
-                    android:textColor="@color/white"
+                    android:textColor="@color/Indigo"
                     android:textSize="25sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -119,11 +119,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Address"
-                    android:textColor="@color/white"
+                    android:textColor="@color/Indigo"
                     android:textSize="25sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <!--<androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal">
@@ -138,10 +138,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Bookmarks"
-                    android:textColor="@color/white"
+                    android:textColor="@color/Indigo"
                     android:textSize="25sp"
                     android:textStyle="bold" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>-->
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -159,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Advertisements"
-                    android:textColor="@color/white"
+                    android:textColor="@color/Indigo"
                     android:textSize="25sp"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.LinearLayoutCompat>
