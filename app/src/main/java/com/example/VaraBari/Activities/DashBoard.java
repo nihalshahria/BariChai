@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.VaraBari.Adapters.DashboardAdapter;
 import com.example.VaraBari.Objects.House;
@@ -42,12 +44,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private View headerView;
     private RecyclerView recyclerView;
     public EditText searchView;
+    public SwipeRefreshLayout swipeRefreshLayout;
     CharSequence search = "";
     public TextView navUserFullName;
     private ImageView navUserPic;
@@ -56,6 +60,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar;
     private String uuid;
     private String _profileImageLink, _fullName, _phoneNo, _address, _email;
+    public boolean doubleBackToExitPressedOnce = false;
 
     DashboardAdapter dashboardAdapter;
     ArrayList<House> list;
@@ -76,6 +81,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         houseRef = FirebaseDatabase.getInstance().getReference("Houses");
         uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        swipeRefreshLayout = findViewById(R.id.dashboard_swipeRefreshLayout);
         recyclerView = findViewById(R.id.dashboard_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -95,15 +101,16 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
                         }
                     }
                 }
+                Collections.shuffle(list, new Random(System.currentTimeMillis()));
                 dashboardAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
                 Toast.makeText(DashBoard.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
+
 
         // Searchbar
         searchView = (EditText)findViewById(R.id.dashboard_searchview);
@@ -126,6 +133,15 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         });
         ////////////////////////////////////
 
+        // swiperefresh
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                RearrangeItems();
+            }
+        });
+        ////////////////////////////////////
 
         // navigation drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_dashboard);
@@ -163,6 +179,13 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         });
     }
 
+    private void RearrangeItems() {
+        Collections.shuffle(list, new Random(System.currentTimeMillis()));
+//        DashboardAdapter adapter = new DashboardAdapter(DashBoard.this, list);
+//        recyclerView.setAdapter(adapter);
+        dashboardAdapter.notifyDataSetChanged();
+    }
+
     // Right corner menu
     @SuppressLint("RestrictedApi")
     @Override
@@ -175,21 +198,36 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+            case R.id.dashboard_refresh:
+                Collections.shuffle(list, new Random(System.currentTimeMillis()));
+//                DashboardAdapter adapter = new DashboardAdapter(DashBoard.this, list);
+//                recyclerView.setAdapter(adapter);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
             case R.id.dashboard_sortbyascrent:
                 Collections.sort(list, House.compareByHouseRentAsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseRentAsc);
                 dashboardAdapter.notifyDataSetChanged();
                 return true;
             case R.id.dashboard_sortbydscrent:
                 Collections.sort(list, House.compareByHouseRentDsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseRentDsc);
                 dashboardAdapter.notifyDataSetChanged();
                 return true;
             case  R.id.dashboard_sortbyascarea:
                 Collections.sort(list, House.compareByHouseAreaAsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaAsc);
                 dashboardAdapter.notifyDataSetChanged();
                 return true;
             case R.id.dashboard_sortbydscarea:
                 Collections.sort(list, House.compareByHouseAreaDsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaDsc);
                 dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.exit_from_dashboard:
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -200,7 +238,21 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
 

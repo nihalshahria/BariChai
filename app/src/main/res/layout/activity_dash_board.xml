@@ -51,11 +51,16 @@
                     android:drawableEnd="@drawable/search_icon"
                     android:layout_marginHorizontal="10dp"/>
             </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/dashboard_recyclerview"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/dashboard_swipeRefreshLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/dashboard_searchbar"/>
+                android:layout_below="@id/dashboard_searchbar">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dashboard_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"

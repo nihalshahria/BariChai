@@ -30,7 +30,7 @@
             </group>
         </menu>
     </item>
-    <item android:id="@+id/exit_from_profile"
+    <item android:id="@+id/exit_from_dashboard"
         android:title="Exit"
         app:showAsAction="never"/>
 
