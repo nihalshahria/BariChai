@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -159,6 +162,38 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
             }
 
         });
+    }
+
+    // Right corner menu
+    @SuppressLint("RestrictedApi")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inFlater = getMenuInflater();
+        inFlater.inflate(R.menu.dashboard_right_corer_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.dashboard_sortbyascrent:
+                Collections.sort(list, House.compareByHouseRentAsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.dashboard_sortbydscrent:
+                Collections.sort(list, House.compareByHouseRentDsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case  R.id.dashboard_sortbyascarea:
+                Collections.sort(list, House.compareByHouseAreaAsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.dashboard_sortbydscarea:
+                Collections.sort(list, House.compareByHouseAreaDsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

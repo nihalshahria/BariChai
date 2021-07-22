@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/dashboard_refresh"
+        android:title="Refresh"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Sort by"
+        app:showAsAction="never">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/dashboard_sortbyascrent"
+                    android:title="Rent (Low to High)"
+                    app:showAsAction="never"/>
+
+                <item android:id="@+id/dashboard_sortbydscrent"
+                    android:title="Rent (High to low)"
+                    app:showAsAction="never"/>
+
+                <item android:id="@+id/dashboard_sortbyascarea"
+                    android:title="Area (Smaller to Bigger)"
+                    app:showAsAction="never"/>
+
+                <item android:id="@+id/dashboard_sortbydscarea"
+                    android:title="Area (Bigger to Smaller)"
+                    app:showAsAction="never"/>
+
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/exit_from_profile"
+        android:title="Exit"
+        app:showAsAction="never"/>
+
+</menu>
