@@ -4,6 +4,7 @@ package com.example.VaraBari.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.BaseMenuPresenter;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -14,8 +15,8 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.CheckBox;
@@ -34,7 +35,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
@@ -44,7 +44,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.UUID;
 
 public class NewAdForm extends AppCompatActivity {
 
@@ -94,6 +93,24 @@ public class NewAdForm extends AppCompatActivity {
         linearLayoutCompat = findViewById(R.id.new_ad_form_imagepicker);
         title = (EditText) findViewById(R.id.new_ad_form_title);
         description = (EditText) findViewById(R.id.new_ad_form_imageDescription);
+
+        description.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(v.getId()==R.id.new_ad_form_imageDescription)
+                {
+                 v.getParent().requestDisallowInterceptTouchEvent(true);
+                 switch(event.getAction() & MotionEvent.ACTION_MASK)
+                 {
+                     case MotionEvent.ACTION_UP:v.getParent().requestDisallowInterceptTouchEvent(false);
+                     break;
+                 }
+                }
+
+                return false;
+            }
+        });
+
         address = (EditText) findViewById(R.id.new_ad_form_address);
         area = (EditText) findViewById(R.id.new_ad_form_area);
         bedroom = (EditText) findViewById(R.id.new_ad_form_bed_room);
@@ -132,6 +149,7 @@ public class NewAdForm extends AppCompatActivity {
                 }, year, month, day);
                 datePickerDialog.show();
             }
+
         });
         ////////////////////////////////////////////////////////////////
 
