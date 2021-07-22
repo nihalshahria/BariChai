@@ -95,7 +95,6 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
                         }
                     }
                 }
-//                Collections.sort(list, House.compareByHouseAreaDsc);
                 dashboardAdapter.notifyDataSetChanged();
             }
 

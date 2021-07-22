@@ -73,7 +73,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             }else{
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for(House house: listFull){
-                    if(house.title.toLowerCase().contains(filterPattern)){
+                    if(house.title.toLowerCase().contains(filterPattern) || house.address.toLowerCase().contains(filterPattern) || house.description.toLowerCase().contains(filterPattern)){
                         filteredList.add(house);
                     }
                 }
