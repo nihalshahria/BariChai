@@ -18,10 +18,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:layout_margin="10dp">
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#00000000"
+                    app:cardCornerRadius="12dp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/overview_imageslider"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:iss_auto_cycle="true"
+                        app:iss_period="3000"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -33,9 +51,10 @@
                 <TextView
                     android:id="@+id/overview_title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/MidnightBlue"
-                    android:textSize="20sp"
+                    android:text="Title"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:gravity="left"
                     android:layout_marginHorizontal="10dp"
@@ -57,7 +76,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="@string/size"
+                        android:text="Area (Sqft)"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -229,7 +248,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
-                        android:text="@string/sampleText2"
+                        android:text="N/A"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -402,7 +421,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/house_address"
+                    android:text="House address"
                     android:textColor="@color/Indigo"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -439,7 +458,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="@string/rent_in_bdt_per_month"
+                        android:text="Rent (per month):"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -469,7 +488,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="@string/service_charge"
+                        android:text="Service charge:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -499,7 +518,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="@string/negotiable"
+                        android:text="Negotiable:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -529,7 +548,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="@string/available_from"
+                        android:text="Available from:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -546,7 +565,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
-                        android:text="@string/_01_01_2001"
+                        android:text="01/01/2001"
                         android:textSize="18sp"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
@@ -632,6 +651,7 @@
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="20sp"
+                            android:textIsSelectable="true"
                             android:background="#00000000"
                             android:layout_marginVertical="5dp"
                             android:layout_marginEnd="5dp"
@@ -663,6 +683,7 @@
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="18sp"
+                            android:textIsSelectable="true"
                             android:background="#00000000"
                             android:layout_marginVertical="5dp"
                             android:layout_marginRight="5dp"
