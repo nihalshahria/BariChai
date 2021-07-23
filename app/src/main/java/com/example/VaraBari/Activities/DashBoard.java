@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,6 +46,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
+import static android.content.ContentValues.TAG;
 
 public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -88,6 +91,15 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         list = new ArrayList<>();
         dashboardAdapter = new DashboardAdapter(this, list);
         recyclerView.setAdapter(dashboardAdapter);
+        dashboardAdapter.setOnHouseClickListener(new DashboardAdapter.OnHouseClickListener() {
+            @Override
+            public void onHouseClick(int position) {
+//                Log.d(TAG, position + "is clicked");
+                Intent intent = new Intent(DashBoard.this, OverViewPage.class);
+                intent.putExtra("House", list.get(position));
+                startActivity(intent);
+            }
+        });
 
         houseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -151,6 +163,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         navUserFullName = (TextView) headerView.findViewById(R.id.nav_user_full_name);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Dashboard");
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

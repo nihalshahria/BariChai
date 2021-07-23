@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".overview_page"
+    tools:context=".Activities.OverViewPage"
     android:background="@drawable/new_ad_back"
     android:orientation="vertical">
     <include layout="@layout/toolbar"/>
@@ -18,10 +18,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:layout_margin="10dp">
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#00000000"
+                    app:cardCornerRadius="12dp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/overview_imageslider"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:iss_auto_cycle="true"
+                        app:iss_period="3000"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -33,9 +51,10 @@
                 <TextView
                     android:id="@+id/overview_title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/MidnightBlue"
-                    android:textSize="20sp"
+                    android:text="Title"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:gravity="left"
                     android:layout_marginHorizontal="10dp"
@@ -57,7 +76,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Area"
+                        android:text="Area (Sqft)"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -72,6 +91,7 @@
                         android:id="@+id/overview_area"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:text="@string/sampleText"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -104,6 +124,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -134,8 +155,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -165,8 +186,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -196,8 +217,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -227,6 +248,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="N/A"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -257,6 +279,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -317,6 +340,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -347,6 +371,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -387,27 +412,59 @@
 
             </TableLayout>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginVertical="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="House address"
+                    android:textColor="@color/Indigo"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/overview_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:gravity="left"
+                    android:layout_marginHorizontal="10dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="20dp"
-                android:backgroundTint="#00000000">
+                android:backgroundTint="@color/LightCyan">
 
                 <TableRow>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Rent (monthly)"
+                        android:text="Rent (per month):"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -419,7 +476,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -432,14 +488,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Service charge"
+                        android:text="Service charge:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -450,7 +505,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -464,14 +518,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Negotiable"
+                        android:text="Negotiable:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -483,7 +536,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -496,14 +548,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Available"
+                        android:text="Available from:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -514,8 +565,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="01/01/2001"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -529,6 +580,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginVertical="20dp"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -548,7 +600,6 @@
                     android:textColor="@color/Black"
                     android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
-
                     />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -564,9 +615,9 @@
                     android:layout_height="match_parent"
                     android:text="Contact Info"
                     android:textColor="@color/Indigo"
-                    android:textSize="25sp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:layout_marginHorizontal="10dp"
                     />
 
@@ -576,20 +627,20 @@
                     android:background="@color/white"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginVertical="10dp"
-                    android:backgroundTint="@color/LightSkyBlue">
+                    android:backgroundTint="@color/water">
                     <TableRow>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Phone no."
+                            android:text="Phone no:"
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:layout_weight="2"
                             android:gravity="left"
-                            android:background="@color/white"
+                            android:background="#00000000"
                             android:layout_margin="5dp"
                             />
 
@@ -599,8 +650,9 @@
                             android:layout_height="match_parent"
                             android:textColor="@color/Black"
                             android:padding="10sp"
-                            android:textSize="18sp"
-                            android:background="@color/white"
+                            android:textSize="20sp"
+                            android:textIsSelectable="true"
+                            android:background="#00000000"
                             android:layout_marginVertical="5dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="4"
@@ -613,14 +665,14 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Email"
+                            android:text="Email:"
                             android:textColor="@color/Black"
                             android:padding="10sp"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:layout_weight="2"
                             android:gravity="left"
-                            android:background="@color/white"
+                            android:background="#00000000"
                             android:layout_margin="5dp"
                             />
 
@@ -631,7 +683,8 @@
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="18sp"
-                            android:background="@color/white"
+                            android:textIsSelectable="true"
+                            android:background="#00000000"
                             android:layout_marginVertical="5dp"
                             android:layout_marginRight="5dp"
                             android:layout_weight="4"
@@ -646,101 +699,43 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="60dp"
                     android:layout_marginTop="5dp"
                     android:backgroundTint="#00000000">
 
-                <TableRow>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:text="Preferred contact"
-                        android:textAllCaps="true"
-                        android:textColor="@color/Black"
-                        android:padding="10sp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_weight="3"
-                        android:gravity="left"
-                        android:background="@color/LightBlue"
-                        android:layout_marginLeft="5dp"
-                        />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/Black"
-                        android:padding="10dp"
-                        android:text="Telephone/mobile"
-                        android:textSize="20sp"
-                        android:background="@color/LightBlue"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="4"
-                        android:gravity="right"
-                        />
-
-                </TableRow>
-
-                </TableLayout>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="House address"
-                        android:textColor="@color/Indigo"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"
-                        android:layout_marginHorizontal="10dp"
-                        />
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="50dp"
-                        android:backgroundTint="@color/LightSkyBlue">
                     <TableRow>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Location"
+                            android:text="Preferred contact:"
+                            android:textAllCaps="true"
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:layout_weight="2"
+                            android:layout_weight="3"
                             android:gravity="left"
-                            android:background="@color/white"
-                            android:layout_margin="5dp"
+                            android:background="@color/water"
+                            android:layout_marginLeft="5dp"
                             />
 
                         <TextView
-                            android:id="@+id/overview_address"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:textColor="@color/Black"
-                            android:padding="10sp"
-                            android:textSize="18sp"
-                            android:background="@color/white"
-                            android:layout_marginVertical="5dp"
+                            android:padding="10dp"
+                            android:text="Telephone/mobile"
+                            android:textSize="20sp"
+                            android:background="#00000000"
                             android:layout_marginRight="5dp"
                             android:layout_weight="4"
                             android:gravity="right"
                             />
-                    </TableRow>
-                    </TableLayout>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    </TableRow>
+
+                </TableLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -6,7 +6,7 @@
     <string name="signup_button">SignUp</string>
     <string name="logout_button">Log Out</string>
     <string name="reset_password">Reset Password</string>
-  
+
     <string name="house_image">House images:</string>
     <string name="size">Area (Sqft)</string>
     <string name="title">Title (Give any)</string>
@@ -20,5 +20,6 @@
     <string name="search_text">Search ...</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sampleText">0</string>
 
 </resources>
