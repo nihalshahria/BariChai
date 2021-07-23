@@ -25,6 +25,24 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/overview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/MidnightBlue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="15dp"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,7 +57,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Size"
+                        android:text="Area"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -51,6 +69,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_area"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -80,6 +99,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_bed_room"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -109,6 +129,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_drawing_room"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -139,6 +160,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_dining_room"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -169,6 +191,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_store_room"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -199,6 +222,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_kitchen"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -228,6 +252,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_attach_bath"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -287,6 +312,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_balcony"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -316,6 +342,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_floor_level"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -386,6 +413,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_rent"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -449,6 +477,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_negotiable"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -480,6 +509,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/overview_available"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
@@ -511,31 +541,15 @@
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginVertical="10dp"
                     />
-                 <TableLayout
-                     android:layout_width="0dp"
-                     android:layout_height="wrap_content"
-                     android:layout_marginHorizontal="10dp"
-                     android:layout_marginVertical="20dp"
-                     android:backgroundTint="#00000000"
-                     android:layout_weight="100dp"
-                     >
-
-                     <TableRow>
-
-                         <TextView
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent"
-                             android:layout_marginHorizontal="10dp"
-                             android:gravity="center_horizontal"
-                             android:text="Contact Info"
-                             android:textColor="@color/Indigo"
-                             android:textSize="25sp"
-                             android:textStyle="bold"
-                             android:layout_weight="100dp"/>
-
-                     </TableRow>
-
-                 </TableLayout>
+                <TextView
+                    android:id="@+id/overview_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginbottom="10dp"
+                    />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -580,6 +594,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/overview_phone_no"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:textColor="@color/Black"
@@ -610,6 +625,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/overview_email"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:textColor="@color/Black"
