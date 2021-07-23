@@ -67,14 +67,14 @@ public class OverViewPage extends AppCompatActivity {
             drawingRoom.setText("No");
         }
         if(house.diningRoomAvailable){
-            drawingRoom.setText("Yes");
+            diningRoom.setText("Yes");
         }else{
-            drawingRoom.setText("No");
+            diningRoom.setText("No");
         }
         if(house.storeRoomAvailable){
-            drawingRoom.setText("Yes");
+            storeRoom.setText("Yes");
         }else{
-            drawingRoom.setText("No");
+            storeRoom.setText("No");
         }
         attachBath.setText(String.valueOf(house.attachBath));
         balcony.setText(String.valueOf(house.balcony));
