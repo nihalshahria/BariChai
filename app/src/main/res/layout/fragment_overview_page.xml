@@ -548,7 +548,7 @@
                     android:textColor="@color/Black"
                     android:textSize="16sp"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginbottom="10dp"
+
                     />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
