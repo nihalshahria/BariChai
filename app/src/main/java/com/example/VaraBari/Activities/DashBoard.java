@@ -261,6 +261,8 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_dashboard:
+                Intent dashboard = new Intent(DashBoard.this, DashBoard.class);
+                startActivity(dashboard);
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
