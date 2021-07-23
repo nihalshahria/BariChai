@@ -89,6 +89,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
         // Toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Profile");
         ///////////////////////////////////////////////////////////////////
 
         // Navigation drawer

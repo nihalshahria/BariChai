@@ -18,10 +18,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:layout_margin="10dp">
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#00000000"
+                    app:cardCornerRadius="12dp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/overview_imageslider"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:iss_auto_cycle="true"
+                        app:iss_period="3000"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

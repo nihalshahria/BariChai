@@ -163,6 +163,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         navUserFullName = (TextView) headerView.findViewById(R.id.nav_user_full_name);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Dashboard");
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
