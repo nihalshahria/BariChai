@@ -72,6 +72,7 @@ public class EditUserInfo extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(R.id.edit_info_progressbar);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Edit information");
 
         //        showPreviousData();
         databaseReference.addValueEventListener(new ValueEventListener() {

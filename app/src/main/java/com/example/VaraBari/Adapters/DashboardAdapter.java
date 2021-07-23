@@ -27,6 +27,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     Context context;
     public ArrayList<House>list = new ArrayList<>();
     public ArrayList<House>listFull = new ArrayList<>();
+    private OnHouseClickListener mListener;
 
     public DashboardAdapter(Context context, ArrayList<House> list) {
         this.context = context;
@@ -39,7 +40,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     @Override
     public DashboardViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.house_card, parent, false);
-        return new DashboardViewHolder(v);
+        return new DashboardViewHolder(v, mListener);
     }
 
     @Override
@@ -91,12 +92,20 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
     };
 
+    public interface OnHouseClickListener{
+        void onHouseClick(int position);
+    }
+
+    public void setOnHouseClickListener(OnHouseClickListener listener){
+        mListener = listener;
+    }
+
     public static class DashboardViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
         TextView title, address, bedrooms, area, rent;
 
-        public DashboardViewHolder(@NonNull @NotNull View itemView) {
+        public DashboardViewHolder(@NonNull @NotNull View itemView, OnHouseClickListener listener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.house_card_image);
             title = itemView.findViewById(R.id.house_card_title);
@@ -104,6 +113,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             bedrooms = itemView.findViewById(R.id.house_card_beds);
             area = itemView.findViewById(R.id.house_card_area);
             rent = itemView.findViewById(R.id.house_card_rent);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if(position!= RecyclerView.NO_POSITION){
+                            listener.onHouseClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
