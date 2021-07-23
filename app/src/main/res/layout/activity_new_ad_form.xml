@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="@string/title"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -139,7 +139,7 @@
                         android:textColor="@color/FireBrick"
                         android:hint="@string/house_description"
                         android:inputType="textMultiLine"
-                        android:background="#00000000"
+                        android:background="@color/water"
                         android:maxLines="5"
                         android:scrollbars="vertical"
                         />
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="@string/address"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -207,7 +207,7 @@
                     android:textColor="@color/FireBrick"
                     android:hint="@string/size"
                     android:inputType="number"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Bedroom"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="number"
                     />
 
@@ -254,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Attach bath"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="number"
                     />
 
@@ -278,7 +278,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Belcony"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="number"
                     />
 
@@ -342,7 +342,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Floor level"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -365,7 +365,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Available from"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="date"
                     />
 
@@ -390,7 +390,7 @@
                     android:textColor="@color/FireBrick"
                     android:hint="@string/rent"
                     android:inputType="number"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -443,7 +443,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Email"
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="textEmailAddress"
                     />
 
@@ -467,7 +467,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
                     android:hint="Phone no."
-                    android:background="#00000000"
+                    android:background="@color/water"
                     android:inputType="phone"
                     />
 
