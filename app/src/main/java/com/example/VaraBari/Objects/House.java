@@ -1,9 +1,12 @@
 package com.example.VaraBari.Objects;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class House {
+public class House implements Parcelable {
     public ArrayList<String>image = new ArrayList<String>();
 
     public String title, description, address;
@@ -92,37 +95,97 @@ public class House {
         }
     };
 
-    public static Comparator<House> compareByHouseBedroomAsc = new Comparator<House>() {
+//    public static Comparator<House> compareByHouseBedroomAsc = new Comparator<House>() {
+//        @Override
+//        public int compare(House o1, House o2) {
+//            Integer a = new Integer(o1.bedRoom);
+//            Integer b = new Integer(o2.bedRoom);
+//            return a.compareTo(b);
+//        }
+//    };
+//    public static Comparator<House> compareByHouseBedroomDsc = new Comparator<House>() {
+//        @Override
+//        public int compare(House o1, House o2) {
+//            Integer a = new Integer(o1.bedRoom);
+//            Integer b = new Integer(o2.bedRoom);
+//            return b.compareTo(a);
+//        }
+//    };
+//
+//    public static Comparator<House> compareByHouseAttachBathAsc = new Comparator<House>() {
+//        @Override
+//        public int compare(House o1, House o2) {
+//            Integer a = new Integer(o1.attachBath);
+//            Integer b = new Integer(o2.attachBath);
+//            return a.compareTo(b);
+//        }
+//    };
+//    public static Comparator<House> compareByHouseAttachBathDsc = new Comparator<House>() {
+//        @Override
+//        public int compare(House o1, House o2) {
+//            Integer a = new Integer(o1.attachBath);
+//            Integer b = new Integer(o2.attachBath);
+//            return b.compareTo(a);
+//        }
+//    };
+
+    protected House(Parcel in) {
+        image = in.createStringArrayList();
+        title = in.readString();
+        description = in.readString();
+        address = in.readString();
+        area = in.readDouble();
+        bedRoom = in.readInt();
+        attachBath = in.readInt();
+        balcony = in.readInt();
+        drawingRoomAvailable = in.readByte() != 0;
+        diningRoomAvailable = in.readByte() != 0;
+        storeRoomAvailable = in.readByte() != 0;
+        rent = in.readInt();
+        availableFrom = in.readString();
+        floorLevel = in.readString();
+        negotiable = in.readByte() != 0;
+        isAvailable = in.readByte() != 0;
+        email = in.readString();
+        phoneNo = in.readString();
+    }
+
+    public static final Creator<House> CREATOR = new Creator<House>() {
         @Override
-        public int compare(House o1, House o2) {
-            Integer a = new Integer(o1.bedRoom);
-            Integer b = new Integer(o2.bedRoom);
-            return a.compareTo(b);
+        public House createFromParcel(Parcel in) {
+            return new House(in);
         }
-    };
-    public static Comparator<House> compareByHouseBedroomDsc = new Comparator<House>() {
+
         @Override
-        public int compare(House o1, House o2) {
-            Integer a = new Integer(o1.bedRoom);
-            Integer b = new Integer(o2.bedRoom);
-            return b.compareTo(a);
+        public House[] newArray(int size) {
+            return new House[size];
         }
     };
 
-    public static Comparator<House> compareByHouseAttachBathAsc = new Comparator<House>() {
-        @Override
-        public int compare(House o1, House o2) {
-            Integer a = new Integer(o1.attachBath);
-            Integer b = new Integer(o2.attachBath);
-            return a.compareTo(b);
-        }
-    };
-    public static Comparator<House> compareByHouseAttachBathDsc = new Comparator<House>() {
-        @Override
-        public int compare(House o1, House o2) {
-            Integer a = new Integer(o1.attachBath);
-            Integer b = new Integer(o2.attachBath);
-            return b.compareTo(a);
-        }
-    };
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringList(image);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(address);
+        dest.writeDouble(area);
+        dest.writeInt(bedRoom);
+        dest.writeInt(attachBath);
+        dest.writeInt(balcony);
+        dest.writeByte((byte) (drawingRoomAvailable ? 1 : 0));
+        dest.writeByte((byte) (diningRoomAvailable ? 1 : 0));
+        dest.writeByte((byte) (storeRoomAvailable ? 1 : 0));
+        dest.writeInt(rent);
+        dest.writeString(availableFrom);
+        dest.writeString(floorLevel);
+        dest.writeByte((byte) (negotiable ? 1 : 0));
+        dest.writeByte((byte) (isAvailable ? 1 : 0));
+        dest.writeString(email);
+        dest.writeString(phoneNo);
+    }
 }

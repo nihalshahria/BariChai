@@ -27,11 +27,13 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     Context context;
     public ArrayList<House>list = new ArrayList<>();
     public ArrayList<House>listFull = new ArrayList<>();
+    public OnHouseListener onHouseListener;
 
-    public DashboardAdapter(Context context, ArrayList<House> list) {
+    public DashboardAdapter(Context context, ArrayList<House> list, OnHouseListener onHouseListener) {
         this.context = context;
         this.list = list;
         this.listFull = list;
+        this.onHouseListener = onHouseListener;
     }
 
     @NonNull
@@ -39,7 +41,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     @Override
     public DashboardViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.house_card, parent, false);
-        return new DashboardViewHolder(v);
+        return new DashboardViewHolder(v, onHouseListener);
     }
 
     @Override
@@ -91,12 +93,13 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
     };
 
-    public static class DashboardViewHolder extends RecyclerView.ViewHolder{
+    public static class DashboardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView;
         TextView title, address, bedrooms, area, rent;
+        OnHouseListener onHouseListener;
 
-        public DashboardViewHolder(@NonNull @NotNull View itemView) {
+        public DashboardViewHolder(@NonNull @NotNull View itemView, OnHouseListener onHouseListener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.house_card_image);
             title = itemView.findViewById(R.id.house_card_title);
@@ -104,6 +107,16 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             bedrooms = itemView.findViewById(R.id.house_card_beds);
             area = itemView.findViewById(R.id.house_card_area);
             rent = itemView.findViewById(R.id.house_card_rent);
+            this.onHouseListener = onHouseListener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            onHouseListener.onHouseClick(getAdapterPosition());
+        }
+    }
+    public interface OnHouseListener{
+         void onHouseClick(int position);
     }
 }
