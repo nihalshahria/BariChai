@@ -9,5 +9,8 @@
     <item android:id="@+id/change_password"
         android:title="Change Password"
         app:showAsAction="never"/>
+    <item android:id="@+id/exit_from_profile"
+        android:title="Exit"
+        app:showAsAction="never"/>
 
 </menu>

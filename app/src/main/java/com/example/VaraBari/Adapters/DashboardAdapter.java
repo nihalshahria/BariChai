@@ -25,13 +25,13 @@ import java.util.Collection;
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder> implements Filterable {
 
     Context context;
-    ArrayList<House>list;
-    ArrayList<House>listFull;
+    public ArrayList<House>list = new ArrayList<>();
+    public ArrayList<House>listFull = new ArrayList<>();
 
     public DashboardAdapter(Context context, ArrayList<House> list) {
         this.context = context;
         this.list = list;
-        listFull = list;
+        this.listFull = list;
     }
 
     @NonNull
@@ -46,7 +46,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     public void onBindViewHolder(@NonNull @NotNull DashboardAdapter.DashboardViewHolder holder, int position) {
         House house = list.get(position);
         Picasso.get().load(house.image.get(0)).into(holder.imageView);
-//        holder.imageView.setImageURI(Uri.parse(house.image.get(0)));
         holder.title.setText(house.title);
         holder.area.setText(String.valueOf((int)house.area));
         holder.address.setText(house.address);
@@ -73,7 +72,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             }else{
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for(House house: listFull){
-                    if(house.title.toLowerCase().contains(filterPattern)){
+                    if(house.title.toLowerCase().contains(filterPattern) || house.address.toLowerCase().contains(filterPattern) || house.description.toLowerCase().contains(filterPattern)){
                         filteredList.add(house);
                     }
                 }

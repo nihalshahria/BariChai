@@ -16,7 +16,8 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:src="@mipmap/app_icon"/>
+            android:src="@drawable/app_icon"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:cardCornerRadius="100dp"
+            android:layout_marginLeft="10dp"
             app:cardBackgroundColor="#00000000"
             >
             <ImageView
