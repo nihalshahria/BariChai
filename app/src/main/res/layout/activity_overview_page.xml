@@ -107,7 +107,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Total bed room"
+                        android:text="@string/total_bed_room"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -138,7 +138,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Drawing room"
+                        android:text="@string/drawing_room"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -169,7 +169,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Dining room"
+                        android:text="@string/dining_room"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -200,7 +200,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Store room"
+                        android:text="@string/store_room"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -231,7 +231,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Kitchen"
+                        android:text="@string/kitchen"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -262,7 +262,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Attach bath"
+                        android:text="@string/attach_bath"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -293,7 +293,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Common bath"
+                        android:text="@string/common_bath"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -310,7 +310,7 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:text="N/A"
+                        android:text="@string/sampleText2"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -323,7 +323,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Balcony"
+                        android:text="@string/balcony"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -354,7 +354,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Floor level"
+                        android:text="@string/floor_level"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -385,7 +385,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Direction facing"
+                        android:text="@string/direction_facing"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -399,7 +399,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="N/A"
+                        android:text="@string/sampleText2"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -477,7 +477,7 @@
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:layout_marginVertical="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginEnd="5dp"
                         android:layout_weight="4"
                         android:gravity="right"
                         />
@@ -496,7 +496,7 @@
                         android:layout_weight="3"
                         android:gravity="left"
                         android:layout_marginVertical="5dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         />
 
                     <TextView
@@ -506,9 +506,9 @@
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:layout_marginVertical="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginEnd="5dp"
                         android:layout_weight="4"
-                        android:text="N/A"
+                        android:text="@string/sampleText2"
                         android:gravity="right"
                         />
                 </TableRow>
@@ -537,7 +537,7 @@
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:layout_marginVertical="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginEnd="5dp"
                         android:layout_weight="4"
                         android:gravity="right"
                         />
@@ -556,7 +556,7 @@
                         android:layout_weight="3"
                         android:gravity="left"
                         android:layout_marginVertical="5dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         />
 
                     <TextView
@@ -585,7 +585,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Description"
+                    android:text="@string/description"
                     android:textColor="@color/Indigo"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -613,7 +613,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Contact Info"
+                    android:text="@string/contact_info"
                     android:textColor="@color/Indigo"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -633,7 +633,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Phone no:"
+                            android:text="@string/phone_no2"
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="18sp"
@@ -654,7 +654,7 @@
                             android:textIsSelectable="true"
                             android:background="#00000000"
                             android:layout_marginVertical="5dp"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp"
                             android:layout_weight="4"
                             android:gravity="right"
                             />
@@ -665,7 +665,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Email:"
+                            android:text="@string/email2"
                             android:textColor="@color/Black"
                             android:padding="10sp"
                             android:textSize="20sp"
@@ -708,7 +708,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Preferred contact:"
+                            android:text="@string/preferred_contact"
                             android:textAllCaps="true"
                             android:textColor="@color/Black"
                             android:padding="10sp"
@@ -717,7 +717,7 @@
                             android:layout_weight="3"
                             android:gravity="left"
                             android:background="@color/water"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginStart="5dp"
                             />
 
                         <TextView
@@ -725,10 +725,10 @@
                             android:layout_height="match_parent"
                             android:textColor="@color/Black"
                             android:padding="10dp"
-                            android:text="Telephone/mobile"
+                            android:text="@string/telephone_mobile"
                             android:textSize="20sp"
                             android:background="#00000000"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginEnd="5dp"
                             android:layout_weight="4"
                             android:gravity="right"
                             />

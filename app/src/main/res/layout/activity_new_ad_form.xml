@@ -277,7 +277,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
-                    android:hint="Belcony"
+                    android:hint="@string/balcony"
                     android:background="@color/water"
                     android:inputType="number"
                     />
@@ -341,7 +341,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/FireBrick"
-                    android:hint="Floor level"
+                    android:hint="@string/floor_level"
                     android:background="@color/water"
                     />
 
@@ -409,7 +409,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact Info"
+                android:text="@string/contact_info"
                 android:textSize="27sp"
                 android:layout_marginHorizontal="15dp"
                 android:textStyle="bold"

@@ -22,4 +22,29 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sampleText">0</string>
 
+    <string name="sampleText">0</string>
+    <string name="sampleText2">N/A</string>
+    <string name="total_bed_room">Total bed room</string>
+    <string name="drawing_room">Drawing room</string>
+    <string name="dining_room">Dining room</string>
+    <string name="store_room">Store room</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="attach_bath">Attach bath</string>
+    <string name="common_bath">Common bath</string>
+    <string name="balcony">Balcony</string>
+    <string name="floor_level">Floor level</string>
+    <string name="direction_facing">Direction facing</string>
+    <string name="house_address">House address</string>
+    <string name="rent_in_bdt_per_month">Rent in BDT (per month):</string>
+    <string name="service_charge">Service charge:</string>
+    <string name="negotiable">Negotiable:</string>
+    <string name="available_from">Available from:</string>
+    <string name="_01_01_2001">01/01/2001</string>
+    <string name="description">Description</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="email2">Email:</string>
+    <string name="phone_no2">Phone no:</string>
+    <string name="preferred_contact">Preferred contact:</string>
+    <string name="telephone_mobile">Telephone/mobile</string>
+
 </resources>
