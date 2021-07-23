@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
-        <activity android:name=".overview_page_new"></activity>
+        <activity android:name=".Activities.OverViewPage"></activity>
         <activity android:name=".Activities.NewAdForm" />
         <activity android:name=".Activities.UserProfile" />
         <activity android:name=".Activities.DashBoard" />

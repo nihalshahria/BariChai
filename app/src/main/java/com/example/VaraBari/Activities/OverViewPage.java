@@ -1,10 +1,12 @@
-package com.example.VaraBari;
+package com.example.VaraBari.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class overview_page_new extends AppCompatActivity {
+import com.example.VaraBari.R;
+
+public class OverViewPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
