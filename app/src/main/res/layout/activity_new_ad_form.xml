@@ -9,7 +9,7 @@
     tools:context=".Activities.NewAdForm">
 
     <include layout="@layout/toolbar"/>
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -107,7 +107,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_title"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:drawableTint="@color/Black"
                     android:textColorHint="@color/DarkSlateGray"
@@ -120,29 +120,31 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:backgroundTint="@color/DarkSlateGray"
                 android:layout_marginBottom="15dp"
-                android:layout_marginHorizontal="20dp"
-                >
+                android:layout_marginHorizontal="20dp">
 
-                <EditText
-                    android:id="@+id/new_ad_form_imageDescription"
-                    android:layout_height="200dp"
-                    android:layout_width="match_parent"
-                    android:textSize="23sp"
-                    android:textStyle="bold"
-                    android:drawableTint="@color/Black"
-                    android:textColorHint="@color/DarkSlateGray"
-                    android:textColor="@color/FireBrick"
-                    android:hint="@string/house_description"
-                    android:inputType="textMultiLine"
-                    android:background="#00000000"
-                    />
-
+                    <EditText
+                        android:id="@+id/new_ad_form_imageDescription"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:drawableTint="@color/Black"
+                        android:textColorHint="@color/DarkSlateGray"
+                        android:textColor="@color/FireBrick"
+                        android:hint="@string/house_description"
+                        android:inputType="textMultiLine"
+                        android:background="#00000000"
+                        android:maxLines="5"
+                        android:scrollbars="vertical"
+                        />
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -152,9 +154,9 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_address"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="35dp"
                     android:layout_marginHorizontal="20dp"
                     android:drawableTint="@color/Black"
                     android:textColorHint="@color/DarkSlateGray"
@@ -194,7 +196,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_area"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -218,7 +220,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_bed_room"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -242,7 +244,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_attach_bath"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -266,7 +268,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_balcony"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -292,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:text="Drawing room available"
                     android:layout_marginHorizontal="20dp"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textColor="@color/DimGray"
                     android:textStyle="bold"
                     tools:ignore="OnClick"
@@ -303,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:text="Dining room available"
                     android:layout_marginHorizontal="20dp"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textColor="@color/DimGray"
                     android:textStyle="bold"
                     tools:ignore="OnClick"
@@ -314,7 +316,7 @@
                     android:layout_height="wrap_content"
                     android:text="Store room available"
                     android:layout_marginHorizontal="20dp"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textColor="@color/DimGray"
                     android:textStyle="bold"
                     tools:ignore="OnClick"
@@ -330,7 +332,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_floor_level"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -353,7 +355,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_available_date"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -377,7 +379,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_rent"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -398,7 +400,7 @@
                 android:layout_height="wrap_content"
                 android:text="Negotiable"
                 android:layout_marginHorizontal="20dp"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:textColor="@color/DimGray"
                 android:textStyle="bold"
                 tools:ignore="OnClick"
@@ -431,7 +433,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_email"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -455,7 +457,7 @@
 
                 <EditText
                     android:id="@+id/new_ad_form_phone_no"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="15dp"
                     android:layout_marginHorizontal="20dp"
@@ -501,7 +503,7 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 

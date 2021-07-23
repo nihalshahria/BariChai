@@ -220,6 +220,11 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 passwordResetDialog.create().show();
                 return true;
             ///////////////////////////////////////////////////////////////////
+            case R.id.exit_from_profile:
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -249,6 +254,12 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
 //                Go to the list of ads published by user
                 break;
             case R.id.nav_profile:
+                Intent profile = new Intent(UserProfile.this, UserProfile.class);
+                startActivity(profile);
+                break;
+            case R.id.nav_publish:
+                Intent newAd = new Intent(UserProfile.this, NewAdForm.class);
+                startActivity(newAd);
                 break;
             case R.id.nav_help:
 //                Go to user-manual page
