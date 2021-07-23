@@ -12,7 +12,7 @@ import com.example.VaraBari.R;
 public class OverViewPage extends AppCompatActivity {
 
     public TextView area, bedRoom, drawingRoom, diningRoom, storeRoom, attachBath, balcony, floorlvl;
-    public TextView rent, negotiable, availableFrom, description, address, phoneNo, email;
+    public TextView rent, negotiable, availableFrom, description, address, phoneNo, email, title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +21,14 @@ public class OverViewPage extends AppCompatActivity {
         Intent intent = getIntent();
         House house = intent.getParcelableExtra("House");
 
+        title = findViewById(R.id.overview_title);
+        title.setText(house.title);
+
         area = findViewById(R.id.overview_area);
-        area.setText(Double. toString(house.area));
+        area.setText(String.valueOf(house.area));
 
         bedRoom = findViewById(R.id.overview_bed_room);
-        bedRoom.setText(house.bedRoom);
+        bedRoom.setText(String.valueOf(house.bedRoom));
 
         drawingRoom = findViewById(R.id.overview_drawing_room);
         if(house.drawingRoomAvailable){
@@ -49,16 +52,16 @@ public class OverViewPage extends AppCompatActivity {
         }
 
         attachBath = findViewById(R.id.overview_attach_bath);
-        attachBath.setText(house.attachBath);
+        attachBath.setText(String.valueOf(house.attachBath));
 
         balcony = findViewById(R.id.overview_balcony);
-        balcony.setText(house.balcony);
+        balcony.setText(String.valueOf(house.balcony));
 
         floorlvl = findViewById(R.id.overview_floor_level);
         floorlvl.setText(house.floorLevel);
 
         rent = findViewById(R.id.overview_rent);
-        rent.setText(house.rent);
+        rent.setText(String.valueOf(house.rent) + " BDT");
 
         negotiable = findViewById(R.id.overview_negotiable);
         if(house.negotiable){

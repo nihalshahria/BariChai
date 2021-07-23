@@ -27,13 +27,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     Context context;
     public ArrayList<House>list = new ArrayList<>();
     public ArrayList<House>listFull = new ArrayList<>();
-    public OnHouseListener onHouseListener;
+    private OnHouseClickListener mListener;
 
-    public DashboardAdapter(Context context, ArrayList<House> list, OnHouseListener onHouseListener) {
+    public DashboardAdapter(Context context, ArrayList<House> list) {
         this.context = context;
         this.list = list;
         this.listFull = list;
-        this.onHouseListener = onHouseListener;
     }
 
     @NonNull
@@ -41,7 +40,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     @Override
     public DashboardViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.house_card, parent, false);
-        return new DashboardViewHolder(v, onHouseListener);
+        return new DashboardViewHolder(v, mListener);
     }
 
     @Override
@@ -93,13 +92,20 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
     };
 
-    public static class DashboardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public interface OnHouseClickListener{
+        void onHouseClick(int position);
+    }
+
+    public void setOnHouseClickListener(OnHouseClickListener listener){
+        mListener = listener;
+    }
+
+    public static class DashboardViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
         TextView title, address, bedrooms, area, rent;
-        OnHouseListener onHouseListener;
 
-        public DashboardViewHolder(@NonNull @NotNull View itemView, OnHouseListener onHouseListener) {
+        public DashboardViewHolder(@NonNull @NotNull View itemView, OnHouseClickListener listener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.house_card_image);
             title = itemView.findViewById(R.id.house_card_title);
@@ -107,16 +113,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             bedrooms = itemView.findViewById(R.id.house_card_beds);
             area = itemView.findViewById(R.id.house_card_area);
             rent = itemView.findViewById(R.id.house_card_rent);
-            this.onHouseListener = onHouseListener;
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if(position!= RecyclerView.NO_POSITION){
+                            listener.onHouseClick(position);
+                        }
+                    }
+                }
+            });
         }
-
-        @Override
-        public void onClick(View v) {
-            onHouseListener.onHouseClick(getAdapterPosition());
-        }
-    }
-    public interface OnHouseListener{
-         void onHouseClick(int position);
     }
 }

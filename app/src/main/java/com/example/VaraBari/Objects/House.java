@@ -95,39 +95,39 @@ public class House implements Parcelable {
         }
     };
 
-//    public static Comparator<House> compareByHouseBedroomAsc = new Comparator<House>() {
-//        @Override
-//        public int compare(House o1, House o2) {
-//            Integer a = new Integer(o1.bedRoom);
-//            Integer b = new Integer(o2.bedRoom);
-//            return a.compareTo(b);
-//        }
-//    };
-//    public static Comparator<House> compareByHouseBedroomDsc = new Comparator<House>() {
-//        @Override
-//        public int compare(House o1, House o2) {
-//            Integer a = new Integer(o1.bedRoom);
-//            Integer b = new Integer(o2.bedRoom);
-//            return b.compareTo(a);
-//        }
-//    };
-//
-//    public static Comparator<House> compareByHouseAttachBathAsc = new Comparator<House>() {
-//        @Override
-//        public int compare(House o1, House o2) {
-//            Integer a = new Integer(o1.attachBath);
-//            Integer b = new Integer(o2.attachBath);
-//            return a.compareTo(b);
-//        }
-//    };
-//    public static Comparator<House> compareByHouseAttachBathDsc = new Comparator<House>() {
-//        @Override
-//        public int compare(House o1, House o2) {
-//            Integer a = new Integer(o1.attachBath);
-//            Integer b = new Integer(o2.attachBath);
-//            return b.compareTo(a);
-//        }
-//    };
+    public static Comparator<House> compareByHouseBedroomAsc = new Comparator<House>() {
+        @Override
+        public int compare(House o1, House o2) {
+            Integer a = new Integer(o1.bedRoom);
+            Integer b = new Integer(o2.bedRoom);
+            return a.compareTo(b);
+        }
+    };
+    public static Comparator<House> compareByHouseBedroomDsc = new Comparator<House>() {
+        @Override
+        public int compare(House o1, House o2) {
+            Integer a = new Integer(o1.bedRoom);
+            Integer b = new Integer(o2.bedRoom);
+            return b.compareTo(a);
+        }
+    };
+
+    public static Comparator<House> compareByHouseAttachBathAsc = new Comparator<House>() {
+        @Override
+        public int compare(House o1, House o2) {
+            Integer a = new Integer(o1.attachBath);
+            Integer b = new Integer(o2.attachBath);
+            return a.compareTo(b);
+        }
+    };
+    public static Comparator<House> compareByHouseAttachBathDsc = new Comparator<House>() {
+        @Override
+        public int compare(House o1, House o2) {
+            Integer a = new Integer(o1.attachBath);
+            Integer b = new Integer(o2.attachBath);
+            return b.compareTo(a);
+        }
+    };
 
     protected House(Parcel in) {
         image = in.createStringArrayList();

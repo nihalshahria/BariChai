@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -50,7 +49,7 @@ import java.util.Random;
 
 import static android.content.ContentValues.TAG;
 
-public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DashboardAdapter.OnHouseListener {
+public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private View headerView;
     private RecyclerView recyclerView;
@@ -90,8 +89,17 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
-        dashboardAdapter = new DashboardAdapter(this, list, this);
+        dashboardAdapter = new DashboardAdapter(this, list);
         recyclerView.setAdapter(dashboardAdapter);
+        dashboardAdapter.setOnHouseClickListener(new DashboardAdapter.OnHouseClickListener() {
+            @Override
+            public void onHouseClick(int position) {
+//                Log.d(TAG, position + "is clicked");
+                Intent intent = new Intent(DashBoard.this, OverViewPage.class);
+                intent.putExtra("House", list.get(position));
+                startActivity(intent);
+            }
+        });
 
         houseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -105,7 +113,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
                         }
                     }
                 }
-//                Collections.shuffle(list, new Random(System.currentTimeMillis()));
+                Collections.shuffle(list, new Random(System.currentTimeMillis()));
                 dashboardAdapter.notifyDataSetChanged();
             }
             @Override
@@ -298,19 +306,8 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     }
 
     public void publish(View view) {
-//        Intent newAd = new Intent(DashBoard.this, NewAdForm.class);
-//        startActivity(newAd);
-        Intent intent = new Intent(DashBoard.this, OverViewPage.class);
-        startActivity(intent);
+        Intent newAd = new Intent(DashBoard.this, NewAdForm.class);
+        startActivity(newAd);
         return;
-    }
-
-    @Override
-    public void onHouseClick(int position) {
-        Log.d(TAG, "onHouseClick: clicked");
-//        list.get(position);
-        Intent intent = new Intent(DashBoard.this, OverViewPage.class);
-        intent.putExtra("House", list.get(position));
-        startActivity(intent);
     }
 }
