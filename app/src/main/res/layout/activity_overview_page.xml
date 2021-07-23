@@ -57,7 +57,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Area"
+                        android:text="Area (Sqft)"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
@@ -72,6 +72,7 @@
                         android:id="@+id/overview_area"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:text="@string/sampleText"
                         android:textColor="@color/Black"
                         android:text="0"
                         android:padding="10sp"
@@ -105,6 +106,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -135,8 +137,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -166,8 +168,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -197,8 +199,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:background="@color/white"
                         android:layout_margin="5dp"
                         android:layout_weight="3"
@@ -228,6 +230,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="N/A"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -258,6 +261,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -318,6 +322,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -348,6 +353,7 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="@string/sampleText"
                         android:textSize="18sp"
                         android:background="@color/white"
                         android:layout_margin="5dp"
@@ -388,27 +394,59 @@
 
             </TableLayout>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginVertical="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="House address"
+                    android:textColor="@color/Indigo"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/overview_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:gravity="left"
+                    android:layout_marginHorizontal="10dp"
+                    />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="20dp"
-                android:backgroundTint="@color/water">
+                android:backgroundTint="@color/LightCyan">
 
                 <TableRow>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Rent (monthly)"
+                        android:text="Rent in BDT (per month):"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -420,7 +458,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -433,14 +470,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Service charge"
+                        android:text="Service charge:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -451,7 +487,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -465,14 +500,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Negotiable"
+                        android:text="Negotiable:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -484,7 +518,6 @@
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -497,14 +530,13 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="Available"
+                        android:text="Available from:"
                         android:textColor="@color/Black"
                         android:padding="10sp"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginLeft="5dp"
                         />
@@ -515,8 +547,8 @@
                         android:layout_height="match_parent"
                         android:textColor="@color/Black"
                         android:padding="10sp"
+                        android:text="01/01/2001"
                         android:textSize="18sp"
-                        android:background="@color/white"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="4"
@@ -530,7 +562,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="30dp"
+                android:layout_marginVertical="20dp"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -557,47 +589,17 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="House address"
-                    android:textColor="@color/Indigo"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:gravity="center_horizontal"
-                    android:layout_marginHorizontal="10dp"
-                    />
-
-                <TextView
-                    android:id="@+id/overview_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp"
-                    android:gravity="left"
-                    android:layout_marginHorizontal="10dp"
-                    />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Contact Info"
                     android:textColor="@color/Indigo"
-                    android:textSize="25sp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
                     android:layout_marginHorizontal="10dp"
                     />
 
