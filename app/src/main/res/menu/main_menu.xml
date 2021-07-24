@@ -12,7 +12,7 @@
             android:icon="@drawable/bookmark"/>
         <item
             android:id="@+id/nav_ads"
-            android:title="My Ads"
+            android:title="My Houses"
             android:icon="@drawable/house_icon"/>
     </group>
     <item

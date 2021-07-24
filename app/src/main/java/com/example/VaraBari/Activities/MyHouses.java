@@ -45,8 +45,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-
-public class DashBoard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MyHouses extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private View headerView;
     private RecyclerView recyclerView;
@@ -60,7 +59,6 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar;
     private String uuid;
     private String _profileImageLink, _fullName;
-    public boolean doubleBackToExitPressedOnce = false;
 
     DashboardAdapter dashboardAdapter;
     ArrayList<House> list;
@@ -73,15 +71,15 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+        setContentView(R.layout.activity_my_houses);
 
         firebaseAuth = FirebaseAuth.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference("Users");
-        houseRef = FirebaseDatabase.getInstance().getReference("Houses");
         uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        houseRef = FirebaseDatabase.getInstance().getReference("Houses").child(uuid);
 
-        swipeRefreshLayout = findViewById(R.id.dashboard_swipeRefreshLayout);
-        recyclerView = findViewById(R.id.dashboard_recyclerview);
+        swipeRefreshLayout = findViewById(R.id.my_house_swipeRefreshLayout);
+        recyclerView = findViewById(R.id.my_house_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
@@ -91,7 +89,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onHouseClick(int position) {
 //                Log.d(TAG, position + "is clicked");
-                Intent intent = new Intent(DashBoard.this, OverViewPage.class);
+                Intent intent = new Intent(MyHouses.this, OverViewPage.class);
                 intent.putExtra("House", list.get(position));
                 startActivity(intent);
             }
@@ -102,26 +100,23 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        House house = dataSnapshot1.getValue(House.class);
-                        if (house.isAvailable) {
-                            list.add(house);
-                        }
-                    }
+
+                        House house = dataSnapshot.getValue(House.class);
+                        list.add(house);
                 }
                 Collections.shuffle(list, new Random(System.currentTimeMillis()));
                 dashboardAdapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                Toast.makeText(DashBoard.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyHouses.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
 
 
         // Searchbar
-        searchView = (EditText)findViewById(R.id.dashboard_searchview);
+        searchView = (EditText)findViewById(R.id.my_house_searchview);
         searchView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
@@ -152,20 +147,19 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         ////////////////////////////////////
 
         // navigation drawer
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_dashboard);
-        navigationView = (NavigationView) findViewById(R.id.nav_view_dashboard);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_my_house);
+        navigationView = (NavigationView) findViewById(R.id.nav_view_my_house);
         headerView = navigationView.getHeaderView(0);
         navUserPic = (ImageView) headerView.findViewById(R.id.nav_user_pic);
         navUserFullName = (TextView) headerView.findViewById(R.id.nav_user_full_name);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Dashboard");
+        getSupportActionBar().setTitle("My Houses");
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
         ///////////////////////////////////////////////////////////////////
 
@@ -182,7 +176,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                Toast.makeText(DashBoard.this, "Error!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyHouses.this, "Error!", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -195,73 +189,13 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         dashboardAdapter.notifyDataSetChanged();
     }
 
-    // Right corner menu
-    @SuppressLint("RestrictedApi")
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inFlater = getMenuInflater();
-        inFlater.inflate(R.menu.dashboard_right_corer_main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.dashboard_refresh:
-                Collections.shuffle(list, new Random(System.currentTimeMillis()));
-//                DashboardAdapter adapter = new DashboardAdapter(DashBoard.this, list);
-//                recyclerView.setAdapter(adapter);
-                dashboardAdapter.notifyDataSetChanged();
-                return true;
-            case R.id.dashboard_sortbyascrent:
-                Collections.sort(list, House.compareByHouseRentAsc);
-                Collections.sort(dashboardAdapter.list, House.compareByHouseRentAsc);
-                dashboardAdapter.notifyDataSetChanged();
-                return true;
-            case R.id.dashboard_sortbydscrent:
-                Collections.sort(list, House.compareByHouseRentDsc);
-                Collections.sort(dashboardAdapter.list, House.compareByHouseRentDsc);
-                dashboardAdapter.notifyDataSetChanged();
-                return true;
-            case  R.id.dashboard_sortbyascarea:
-                Collections.sort(list, House.compareByHouseAreaAsc);
-                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaAsc);
-                dashboardAdapter.notifyDataSetChanged();
-                return true;
-            case R.id.dashboard_sortbydscarea:
-                Collections.sort(list, House.compareByHouseAreaDsc);
-                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaDsc);
-                dashboardAdapter.notifyDataSetChanged();
-                return true;
-            case R.id.exit_from_dashboard:
-                moveTaskToBack(true);
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(1);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce=false;
-                }
-            }, 2000);
+        }
+        else{
+            super.onBackPressed();
         }
     }
 
@@ -270,25 +204,23 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_dashboard:
-                Intent dashboard = new Intent(DashBoard.this, DashBoard.class);
+                Intent dashboard = new Intent(MyHouses.this, DashBoard.class);
                 startActivity(dashboard);
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
-                Intent favourites = new Intent(DashBoard.this, FavouritesActivity.class);
-                startActivity(favourites);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
-                Intent myHouse = new Intent(DashBoard.this, MyHouses.class);
+                Intent myHouse = new Intent(MyHouses.this, MyHouses.class);
                 startActivity(myHouse);
                 break;
             case R.id.nav_profile:
-                Intent intent = new Intent(DashBoard.this, UserProfile.class);
+                Intent intent = new Intent(MyHouses.this, UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.nav_publish:
-                Intent newAd = new Intent(DashBoard.this, NewAdForm.class);
+                Intent newAd = new Intent(MyHouses.this, NewAdForm.class);
                 startActivity(newAd);
                 break;
             case R.id.nav_help:
@@ -307,7 +239,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     }
 
     public void publish(View view) {
-        Intent newAd = new Intent(DashBoard.this, NewAdForm.class);
+        Intent newAd = new Intent(MyHouses.this, NewAdForm.class);
         startActivity(newAd);
         return;
     }
