@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.VaraBari.Adapters.DashboardAdapter;
+import com.example.VaraBari.Adapters.MyHouseAdapter;
 import com.example.VaraBari.Objects.House;
 import com.example.VaraBari.R;
 import com.google.android.material.navigation.NavigationView;
@@ -60,7 +61,7 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
     private String uuid;
     private String _profileImageLink, _fullName;
 
-    DashboardAdapter dashboardAdapter;
+    MyHouseAdapter dashboardAdapter;
     ArrayList<House> list;
 
 
@@ -83,9 +84,9 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
-        dashboardAdapter = new DashboardAdapter(this, list);
+        dashboardAdapter = new MyHouseAdapter(this, list);
         recyclerView.setAdapter(dashboardAdapter);
-        dashboardAdapter.setOnHouseClickListener(new DashboardAdapter.OnHouseClickListener() {
+        dashboardAdapter.setOnHouseClickListener(new MyHouseAdapter.OnHouseClickListener() {
             @Override
             public void onHouseClick(int position) {
 //                Log.d(TAG, position + "is clicked");
@@ -209,6 +210,8 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
+                Intent favourites = new Intent(MyHouses.this, FavouritesActivity.class);
+                startActivity(favourites);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
