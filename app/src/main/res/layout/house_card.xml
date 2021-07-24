@@ -47,7 +47,7 @@
                 android:ellipsize="end"
                 android:text="Address"
                 android:textColor="@color/Black"
-                android:textSize="17sp"/>
+                android:textSize="18sp"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
