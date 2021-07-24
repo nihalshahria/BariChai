@@ -15,7 +15,7 @@ public class House implements Parcelable {
     public int bedRoom, attachBath, balcony;
     public boolean drawingRoomAvailable, diningRoomAvailable, storeRoomAvailable;
     public int  rent;
-    public String availableFrom, floorLevel;
+    public String availableFrom, floorLevel, postKey;
     public boolean negotiable, isAvailable;
 
     public String email, phoneNo;
@@ -28,6 +28,7 @@ public class House implements Parcelable {
         availableFrom = "";
         email = "";
         phoneNo = "";
+        postKey ="";
         bedRoom = 0;
         attachBath = 0;
         balcony = 0;
@@ -40,7 +41,7 @@ public class House implements Parcelable {
         negotiable = false;
     }
 
-    public House(ArrayList<String> image, String title, String description, String address, double area, int bedRoom, int attachBath, int balcony, boolean drawingRoomAvailable, boolean diningRoomAvailable, boolean storeRoomAvailable, int rent, String availableFrom, String floorLevel, boolean negotiable, boolean isAvailable, String email, String phoneNo) {
+    public House(ArrayList<String> image, String title, String description, String address, double area, int bedRoom, int attachBath, int balcony, boolean drawingRoomAvailable, boolean diningRoomAvailable, boolean storeRoomAvailable, int rent, String availableFrom, String floorLevel, String postKey, boolean negotiable, boolean isAvailable, String email, String phoneNo) {
         this.image = image;
         this.title = title;
         this.description = description;
@@ -59,6 +60,7 @@ public class House implements Parcelable {
         this.isAvailable = isAvailable;
         this.email = email;
         this.phoneNo = phoneNo;
+        this.postKey = postKey;
     }
 
     public static Comparator<House> compareByHouseRentAsc = new Comparator<House>() {
