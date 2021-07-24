@@ -153,7 +153,7 @@ public class FavouritesActivity extends AppCompatActivity implements NavigationV
         navUserFullName = (TextView) headerView.findViewById(R.id.nav_user_full_name);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("My Houses");
+        getSupportActionBar().setTitle("Favourites");
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
