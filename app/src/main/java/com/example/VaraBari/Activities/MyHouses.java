@@ -236,6 +236,7 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
                 editor.putBoolean("hasLoggedIn", false);
                 editor.commit();
                 startActivity(new Intent(getApplicationContext(), LogInScreenActivity.class));
+                finish();
                 break;
         }
         return true;

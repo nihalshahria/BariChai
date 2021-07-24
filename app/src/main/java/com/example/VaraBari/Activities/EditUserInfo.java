@@ -138,6 +138,8 @@ public class EditUserInfo extends AppCompatActivity {
                     || isChanged(editPhoneNo, _phoneNo, "phoneNo")
                     || isChanged(editAddress, _address, "address")){
                 Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                finish();
             }else{
                 Toast.makeText(this, "No change detected", Toast.LENGTH_SHORT).show();
             }

@@ -301,6 +301,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
                 editor.putBoolean("hasLoggedIn", false);
                 editor.commit();
                 startActivity(new Intent(getApplicationContext(), LogInScreenActivity.class));
+                finish();
                 break;
         }
         return true;

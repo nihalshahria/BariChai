@@ -306,6 +306,7 @@ public class NewAdForm extends AppCompatActivity {
                 Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(NewAdForm.this, DashBoard.class);
                 startActivity(intent);
+                finish();
             }
         }, 22000);
 

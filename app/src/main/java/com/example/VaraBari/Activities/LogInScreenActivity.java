@@ -11,9 +11,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.VaraBari.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +33,7 @@ public class LogInScreenActivity extends AppCompatActivity {
     // Views
     private EditText loginEmail, loginPassword;
     private CardView logINButton;
+    private Animation animationMix, animationL2R, animationR2L, animationD2U;
 
     // Firebase
     private FirebaseAuth firebaseAuth;
@@ -43,10 +48,22 @@ public class LogInScreenActivity extends AppCompatActivity {
         loginPassword = (EditText) findViewById(R.id.login_password);
         logINButton = (CardView) findViewById(R.id.login_button);
         firebaseAuth = FirebaseAuth.getInstance();
+        animationMix = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.mixed_anim);
+        findViewById(R.id.login_house).startAnimation(animationMix);
+        animationL2R = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.lefttoright);
+        findViewById(R.id.login_email_layout).startAnimation(animationL2R);
+        animationR2L = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.righttoleft);
+        findViewById(R.id.login_pass_layout).startAnimation(animationR2L);
+        animationD2U = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.downtoup);
+        findViewById(R.id.login_screen_buttons).startAnimation(animationD2U);
+//        YoYo.with(Techniques.SlideInLeft).duration(2000).repeat(0).playOn(findViewById(R.id.login_house));
 
+//        Animation animationZmIn = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.bounce);
         logINButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                logINButton.startAnimation(animationZmIn);
+                YoYo.with(Techniques.Bounce).duration(1000).repeat(2).playOn(logINButton);
                 String email = loginEmail.getText().toString().trim();
                 String password = loginPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
@@ -68,6 +85,7 @@ public class LogInScreenActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putBoolean("hasLoggedIn", true);
                                     editor.commit();
+
                                     startActivity(new Intent(getApplicationContext(), DashBoard.class));
                                     finish();
                                 } else {
@@ -81,6 +99,7 @@ public class LogInScreenActivity extends AppCompatActivity {
 
     public void button_signupForm(View view) {
         startActivity(new Intent(getApplicationContext(), Signup_Form.class));
+//        finish();
     }
 
 

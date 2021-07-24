@@ -234,6 +234,7 @@ public class FavouritesActivity extends AppCompatActivity implements NavigationV
                 editor.putBoolean("hasLoggedIn", false);
                 editor.commit();
                 startActivity(new Intent(getApplicationContext(), LogInScreenActivity.class));
+                finish();
                 break;
         }
         return true;
