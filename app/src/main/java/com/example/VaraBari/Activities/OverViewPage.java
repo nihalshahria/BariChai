@@ -3,6 +3,7 @@ package com.example.VaraBari.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +13,9 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.VaraBari.Objects.House;
 import com.example.VaraBari.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -57,6 +61,17 @@ public class OverViewPage extends AppCompatActivity {
         for(String x: house.image){
             images.add(new SlideModel(x, null));
         }
+//        String key = house.postKey;
+//        for (int i = 0; i<5; i++){
+//            FirebaseStorage.getInstance().getReference("House_Images").child(key).child((String.valueOf(i)+".jpg")).getDownloadUrl()
+//                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                        @Override
+//                        public void onSuccess(Uri uri) {
+//                            images.add(new SlideModel(String.valueOf(uri), null));
+//
+//                        }
+//                    });
+//        }
         imageSlider.setImageList(images, ScaleTypes.CENTER_CROP);
         title.setText(house.title);
         area.setText(String.valueOf(house.area));

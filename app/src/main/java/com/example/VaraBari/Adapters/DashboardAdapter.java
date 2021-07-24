@@ -16,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.VaraBari.Objects.House;
 import com.example.VaraBari.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -61,7 +64,15 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
         House house = list.get(position);
         final String key = house.postKey;
-        Picasso.get().load(house.image.get(0)).into(holder.imageView);
+        FirebaseStorage.getInstance().getReference("House_Images").child(key).child("0.jpg").getDownloadUrl()
+            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(holder.imageView);
+                }
+            });
+
+//        Picasso.get().load(house.image.get(0)).into(holder.imageView);
         holder.title.setText(house.title);
         holder.area.setText(String.valueOf((int)house.area));
         holder.address.setText(house.address);

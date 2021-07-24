@@ -56,11 +56,11 @@ public class House implements Parcelable {
         this.rent = rent;
         this.availableFrom = availableFrom;
         this.floorLevel = floorLevel;
+        this.postKey = postKey;
         this.negotiable = negotiable;
         this.isAvailable = isAvailable;
         this.email = email;
         this.phoneNo = phoneNo;
-        this.postKey = postKey;
     }
 
     public static Comparator<House> compareByHouseRentAsc = new Comparator<House>() {
@@ -146,6 +146,7 @@ public class House implements Parcelable {
         rent = in.readInt();
         availableFrom = in.readString();
         floorLevel = in.readString();
+        postKey = in.readString();
         negotiable = in.readByte() != 0;
         isAvailable = in.readByte() != 0;
         email = in.readString();
@@ -185,6 +186,7 @@ public class House implements Parcelable {
         dest.writeInt(rent);
         dest.writeString(availableFrom);
         dest.writeString(floorLevel);
+        dest.writeString(postKey);
         dest.writeByte((byte) (negotiable ? 1 : 0));
         dest.writeByte((byte) (isAvailable ? 1 : 0));
         dest.writeString(email);
