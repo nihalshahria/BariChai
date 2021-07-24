@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -105,6 +108,28 @@ public class OverViewPage extends AppCompatActivity {
         address.setText(house.address);
         phoneNo.setText(house.phoneNo);
         email.setText(house.email);
+
+        phoneNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number = "tel:"+house.phoneNo;
+                Toast.makeText(OverViewPage.this, "Calling", Toast.LENGTH_SHORT).show();
+                Intent call = new Intent(Intent.ACTION_DIAL);
+                call.setData(Uri.parse(number));
+                startActivity(call);
+            }
+        });
+
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailAc = house.email;
+                Intent mail = new Intent(Intent.ACTION_SEND);
+                mail.setType("text/plain");
+                mail.putExtra(Intent.EXTRA_EMAIL, emailAc);
+                startActivity(Intent.createChooser(mail, "Send Email"));
+            }
+        });
 
     }
 }
