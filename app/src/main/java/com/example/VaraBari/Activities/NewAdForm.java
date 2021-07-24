@@ -13,8 +13,10 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -88,7 +90,7 @@ public class NewAdForm extends AppCompatActivity {
         imageView[4] = (ImageView) findViewById(R.id.new_ad_form_house_image5);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Information uploading");
+        progressDialog.setMessage("Information uploading. Please wait..");
 
         linearLayoutCompat = findViewById(R.id.new_ad_form_imagepicker);
         title = (EditText) findViewById(R.id.new_ad_form_title);
@@ -277,7 +279,7 @@ public class NewAdForm extends AppCompatActivity {
                 Toast.makeText(NewAdForm.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
+        progressDialog.show();
         // Image upload
         for (uploadCount = 0; uploadCount < imageUri.size(); uploadCount++) {
             Uri uploadUri = imageUri.get(uploadCount);
@@ -292,34 +294,21 @@ public class NewAdForm extends AppCompatActivity {
                             String url = String.valueOf(uri);
                             house.image.add(url);
                             databaseReference.child(uuid).child(key).child("image").setValue(house.image);
-//                            databaseReference.child(uuid).child(key).child("image").child(Integer.toString(uploadCount)).setValue(url);
-//                            if(uploadCount+1==imageUri.size()){
-//                                databaseReference.child(uuid).child(key)
-//                                        .setValue(house).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
-//                                        if (task.isSuccessful()) {
-//                                            progressDialog.dismiss();
-//                                            Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
-//                                        } else {
-//                                            progressDialog.dismiss();
-//                                            Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    }
-//                                }).addOnFailureListener(new OnFailureListener() {
-//                                    @Override
-//                                    public void onFailure(@NonNull @NotNull Exception e) {
-//                                        progressDialog.dismiss();
-//                                        Toast.makeText(NewAdForm.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                });
-//                            }
                         }
                     });
                 }
             });
         }
         house.image.clear();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+                Intent intent = new Intent(NewAdForm.this, DashBoard.class);
+                startActivity(intent);
+            }
+        }, 22000);
+
     }
 
     // Image Picker

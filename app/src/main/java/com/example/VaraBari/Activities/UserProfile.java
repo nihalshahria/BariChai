@@ -250,9 +250,13 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
+                Intent favourites = new Intent(UserProfile.this, FavouritesActivity.class);
+                startActivity(favourites);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
+                Intent myHouse = new Intent(UserProfile.this, MyHouses.class);
+                startActivity(myHouse);
                 break;
             case R.id.nav_profile:
                 Intent profile = new Intent(UserProfile.this, UserProfile.class);
