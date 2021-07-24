@@ -70,8 +70,11 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef, fvrtRef, fvrt_listRef;
+    Boolean fvrtChecker = false;
     private DatabaseReference houseRef;
+
+    House house;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +82,14 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dash_board);
 
+        house = new House();
+
         firebaseAuth = FirebaseAuth.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference("Users");
         houseRef = FirebaseDatabase.getInstance().getReference("Houses");
         uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        fvrtRef = FirebaseDatabase.getInstance().getReference("favourites");
+        fvrt_listRef = FirebaseDatabase.getInstance().getReference("favouriteList").child(uuid);
 
         swipeRefreshLayout = findViewById(R.id.dashboard_swipeRefreshLayout);
         recyclerView = findViewById(R.id.dashboard_recyclerview);
