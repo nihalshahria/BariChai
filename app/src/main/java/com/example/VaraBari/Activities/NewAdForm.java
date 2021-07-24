@@ -268,7 +268,6 @@ public class NewAdForm extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -304,6 +303,7 @@ public class NewAdForm extends AppCompatActivity {
             @Override
             public void run() {
                 progressDialog.dismiss();
+                Toast.makeText(NewAdForm.this, "New Ad Published", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(NewAdForm.this, DashBoard.class);
                 startActivity(intent);
             }
