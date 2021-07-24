@@ -258,6 +258,7 @@ public class NewAdForm extends AppCompatActivity {
 
         // Create node in Database
         key = databaseReference.child(uuid).push().getKey();
+        house.postKey = key;
 
         ///////////////////////
         databaseReference.child(uuid).child(key).setValue(house)
