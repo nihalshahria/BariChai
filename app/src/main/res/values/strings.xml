@@ -44,4 +44,5 @@
     <string name="preferred_contact">Preferred contact:</string>
     <string name="telephone_mobile">Telephone/mobile</string>
 
+    <string name="underline"><u>Developed by</u></string>
 </resources>
