@@ -44,7 +44,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class UserProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public TextView fullName, email, phoneNo, address, navUserFullName;
+    public TextView fullName, email, phoneNo, address, navUserFullName, houses;
     private View headerView;
     private ImageView profileImage, navUserPic;
     private NavigationView navigationView;
@@ -76,6 +76,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
         email = (TextView)findViewById(R.id.mail);
         phoneNo = (TextView)findViewById(R.id.phone_number);
         address = (TextView)findViewById(R.id.address);
+        houses = (TextView)findViewById(R.id.houses);
         ///////////////////////////////////////////////////////////////////
 
         // Navigation Drawer Hooks
@@ -130,6 +131,13 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
 
         });
         ///////////////////////////////////////////////////////////////////
+
+        houses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfile.this, MyHouses.class));
+            }
+        });
     }
 
 
@@ -248,27 +256,32 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             case R.id.nav_dashboard:
                 Intent intent = new Intent(UserProfile.this, DashBoard.class);
                 startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
                 Intent favourites = new Intent(UserProfile.this, FavouritesActivity.class);
                 startActivity(favourites);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
                 Intent myHouse = new Intent(UserProfile.this, MyHouses.class);
                 startActivity(myHouse);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
-                Intent profile = new Intent(UserProfile.this, UserProfile.class);
-                startActivity(profile);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_publish:
-                Intent newAd = new Intent(UserProfile.this, NewAdForm.class);
+                Intent newAd = new Intent(this, NewAdForm.class);
                 startActivity(newAd);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_help:
+            case R.id.nav_about_us:
 //                Go to user-manual page
+                startActivity(new Intent(this, AboutUsPage.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_log_out:
                 firebaseAuth.signOut();

@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/about_us_background"
-    tools:context=".AboutUsPage">
+    tools:context=".Activities.AboutUsPage">
     <include layout="@layout/toolbar"/>
 
     <TextView
+        android:id="@+id/about_us_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -20,6 +21,7 @@
         android:gravity="center_horizontal"/>
 
    <RelativeLayout
+       android:id="@+id/about_us_nihal"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
@@ -69,6 +71,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_marginTop="3dp"
+               android:layout_marginStart="5dp"
                android:text="Md.Shahria Islam Nihal"
                android:textColor="@color/Indigo"
                android:textSize="16sp"/>
@@ -76,6 +79,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_marginTop="3dp"
+               android:layout_marginStart="5dp"
                android:text="B.Sc. in Software Engineering,"
                android:textColor="@color/Black"
                android:textSize="13sp"/>
@@ -84,6 +88,7 @@
                android:layout_height="wrap_content"
                android:layout_marginTop="2dp"
                android:layout_marginBottom="4dp"
+               android:layout_marginStart="5dp"
                android:text="Shahjalal University of Science and Technology, Sylhet."
                android:textColor="@color/Black"
                android:textSize="13sp"/>
@@ -134,7 +139,7 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="https://github.com/nihalshahria"
+                   android:text="nihalshahria"
                    android:textColor="@color/Black"
                    android:textSize="13sp"/>
 
@@ -166,6 +171,7 @@
    </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/about_us_jowher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -215,12 +221,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="Jowher Mehajabin Juthi"
+                android:layout_marginStart="5dp"
                 android:textColor="@color/Indigo"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:layout_marginStart="5dp"
                 android:text="B.Sc. in Software Engineering,"
                 android:textColor="@color/Black"
                 android:textSize="13sp"/>
@@ -229,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
                 android:text="Shahjalal University of Science and Technology, Sylhet."
                 android:textColor="@color/Black"
                 android:textSize="13sp"/>

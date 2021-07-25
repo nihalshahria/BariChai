@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaraBari">
-        <activity android:name=".AboutUsPage"></activity>
+        <activity android:name=".Activities.AboutUsPage"></activity>
         <activity android:name=".Activities.FavouritesActivity"></activity>
         <activity android:name=".Activities.MyHouses" />
         <activity android:name=".Activities.OverViewPage" />

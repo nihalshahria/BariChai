@@ -207,27 +207,32 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_dashboard:
                 Intent dashboard = new Intent(MyHouses.this, DashBoard.class);
                 startActivity(dashboard);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
                 Intent favourites = new Intent(MyHouses.this, FavouritesActivity.class);
                 startActivity(favourites);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
-                Intent myHouse = new Intent(MyHouses.this, MyHouses.class);
-                startActivity(myHouse);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
                 Intent intent = new Intent(MyHouses.this, UserProfile.class);
                 startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_publish:
                 Intent newAd = new Intent(MyHouses.this, NewAdForm.class);
                 startActivity(newAd);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_help:
+            case R.id.nav_about_us:
 //                Go to user-manual page
+                startActivity(new Intent(this, AboutUsPage.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_log_out:
                 firebaseAuth.signOut();

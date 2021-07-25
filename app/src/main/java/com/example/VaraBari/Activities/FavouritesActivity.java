@@ -205,27 +205,32 @@ public class    FavouritesActivity extends AppCompatActivity implements Navigati
             case R.id.nav_dashboard:
                 Intent dashboard = new Intent(FavouritesActivity.this, DashBoard.class);
                 startActivity(dashboard);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_favourites:
 //                Go to the list of favourites
-                Intent favourites = new Intent(FavouritesActivity.this, FavouritesActivity.class);
-                startActivity(favourites);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_ads:
 //                Go to the list of ads published by user
                 Intent myHouse = new Intent(FavouritesActivity.this, MyHouses.class);
                 startActivity(myHouse);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
                 Intent intent = new Intent(FavouritesActivity.this, UserProfile.class);
                 startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_publish:
                 Intent newAd = new Intent(FavouritesActivity.this, NewAdForm.class);
                 startActivity(newAd);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_help:
+            case R.id.nav_about_us:
 //                Go to user-manual page
+                startActivity(new Intent(this, AboutUsPage.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_log_out:
                 firebaseAuth.signOut();
