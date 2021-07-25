@@ -77,7 +77,9 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
         firebaseAuth = FirebaseAuth.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference("Users");
+        myRef.keepSynced(true);
         houseRef = FirebaseDatabase.getInstance().getReference("Houses");
+        houseRef.keepSynced(true);
         uuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         swipeRefreshLayout = findViewById(R.id.dashboard_swipeRefreshLayout);
