@@ -247,4 +247,51 @@ public class MyHouses extends AppCompatActivity implements NavigationView.OnNavi
         startActivity(newAd);
         return;
     }
+
+    // Right corner menu
+    @SuppressLint("RestrictedApi")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inFlater = getMenuInflater();
+        inFlater.inflate(R.menu.right_corer_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.dashboard_refresh:
+                Collections.shuffle(list, new Random(System.currentTimeMillis()));
+//                DashboardAdapter adapter = new DashboardAdapter(DashBoard.this, list);
+//                recyclerView.setAdapter(adapter);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.dashboard_sortbyascrent:
+                Collections.sort(list, House.compareByHouseRentAsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseRentAsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.dashboard_sortbydscrent:
+                Collections.sort(list, House.compareByHouseRentDsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseRentDsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case  R.id.dashboard_sortbyascarea:
+                Collections.sort(list, House.compareByHouseAreaAsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaAsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.dashboard_sortbydscarea:
+                Collections.sort(list, House.compareByHouseAreaDsc);
+                Collections.sort(dashboardAdapter.list, House.compareByHouseAreaDsc);
+                dashboardAdapter.notifyDataSetChanged();
+                return true;
+            case R.id.exit_from_dashboard:
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -9,7 +9,7 @@
 
     <string name="house_image">House images:</string>
     <string name="size">Area (sqft)</string>
-    <string name="title">Title (Give any)</string>
+    <string name="title">Title</string>
     <string name="house_description">Description</string>
     <string name="address">Address</string>
     <string name="rent">Rent</string>

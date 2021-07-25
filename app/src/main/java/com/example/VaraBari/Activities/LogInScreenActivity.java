@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -34,6 +36,7 @@ public class LogInScreenActivity extends AppCompatActivity {
     private EditText loginEmail, loginPassword;
     private CardView logINButton;
     private Animation animationMix, animationL2R, animationR2L, animationD2U;
+    public boolean doubleBackToExitPressedOnce = false;
 
     // Firebase
     private FirebaseAuth firebaseAuth;
@@ -135,5 +138,25 @@ public class LogInScreenActivity extends AppCompatActivity {
             }
         });
         passwordResetDialog.create().show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }

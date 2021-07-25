@@ -200,7 +200,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inFlater = getMenuInflater();
-        inFlater.inflate(R.menu.dashboard_right_corer_main_menu, menu);
+        inFlater.inflate(R.menu.right_corer_main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

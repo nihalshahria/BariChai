@@ -238,6 +238,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
     }
 
@@ -277,7 +278,6 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 editor.commit();
                 startActivity(new Intent(getApplicationContext(), LogInScreenActivity.class));
                 finish();
-                break;
         }
         return true;
     }
