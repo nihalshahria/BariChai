@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/MidnightBlue"
                     android:text="Title"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     android:gravity="left"
                     android:layout_marginHorizontal="10dp"

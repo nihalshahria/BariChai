@@ -6,23 +6,4 @@
     android:background="#00BCD4"
     android:elevation="4dp">
 
-    <!--<ImageButton
-        android:id="@+id/delete_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/delete_icon"
-        android:background="@color/Transparent"
-        android:layout_centerVertical="true"/>-->
-    <!--<CheckBox
-        android:id="@+id/house_card_available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Available"
-        android:textSize="20sp"
-        android:textColor="@color/DimGray"
-        android:layout_marginLeft="-6dp"
-        android:textStyle="bold"
-        android:layout_marginBottom="15dp"/>-->
 </androidx.appcompat.widget.Toolbar>
