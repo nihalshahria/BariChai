@@ -44,5 +44,11 @@
     <string name="preferred_contact">Preferred contact:</string>
     <string name="telephone_mobile">Telephone/mobile</string>
 
+
+    <string name="nihal_github_link">https://github.com/nihalshahria</string>
+    <string name="nihal_facebook_link">https://www.facebook.com/nshahria</string>
+    <string name="jowher_github_link">https://github.com/jowhermehajabin</string>
+    <string name="jowher_facebook_link">https://www.facebook.com/jowherjm</string>
+
     <string name="underline"><u>Developed by</u></string>
 </resources>

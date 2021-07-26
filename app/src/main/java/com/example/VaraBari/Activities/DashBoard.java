@@ -111,7 +111,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
                         }
                     }
                 }
-                Collections.shuffle(list, new Random(System.currentTimeMillis()));
+//                Collections.shuffle(list, new Random(System.currentTimeMillis()));
                 dashboardAdapter.notifyDataSetChanged();
             }
             @Override
