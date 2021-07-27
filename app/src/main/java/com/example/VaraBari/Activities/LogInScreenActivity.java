@@ -47,6 +47,8 @@ public class LogInScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_screen);
+
+        // Hooks
         loginEmail = (EditText) findViewById(R.id.login_email);
         loginPassword = (EditText) findViewById(R.id.login_password);
         logINButton = (CardView) findViewById(R.id.login_button);
@@ -59,13 +61,11 @@ public class LogInScreenActivity extends AppCompatActivity {
         findViewById(R.id.login_pass_layout).startAnimation(animationR2L);
         animationD2U = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.downtoup);
         findViewById(R.id.login_screen_buttons).startAnimation(animationD2U);
-//        YoYo.with(Techniques.SlideInLeft).duration(2000).repeat(0).playOn(findViewById(R.id.login_house));
 
-//        Animation animationZmIn = AnimationUtils.loadAnimation(LogInScreenActivity.this, R.anim.bounce);
+
         logINButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                logINButton.startAnimation(animationZmIn);
                 YoYo.with(Techniques.Bounce).duration(1000).repeat(2).playOn(logINButton);
                 String email = loginEmail.getText().toString().trim();
                 String password = loginPassword.getText().toString().trim();
@@ -110,7 +110,7 @@ public class LogInScreenActivity extends AppCompatActivity {
         EditText resetMail = new EditText(view.getContext());
         AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
         passwordResetDialog.setTitle("Reset Password");
-        passwordResetDialog.setMessage("Enter your email to received reset link");
+        passwordResetDialog.setMessage("Enter your email to receive reset link");
         passwordResetDialog.setView(resetMail);
 
         passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

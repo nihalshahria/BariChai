@@ -30,6 +30,8 @@ public class Signup_Form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_form);
+
+        // Hooks
         textFullName = (EditText) findViewById(R.id.full_name);
         textUsername = (EditText) findViewById(R.id.username);
         textEmail = (EditText) findViewById(R.id.email);
@@ -38,7 +40,7 @@ public class Signup_Form extends AppCompatActivity {
         signUp = (CardView) findViewById(R.id.signup);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,9 +48,8 @@ public class Signup_Form extends AppCompatActivity {
                 String username = textUsername.getText().toString().trim();
                 String email = textEmail.getText().toString().trim();
                 String password = textPassword.getText().toString().trim();
-
                 String confirmedPassword = textConfirmPassword.getText().toString().trim();
-//                Toast.makeText(Signup_Form.this, fullname, Toast.LENGTH_SHORT).show();
+
                 if (TextUtils.isEmpty(fullname)) {
                     textFullName.setError("Full name is required");
                     textFullName.requestFocus();

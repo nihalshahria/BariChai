@@ -271,6 +271,7 @@ public class NewAdForm extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<Void> task) {
                 if (task.isSuccessful()) {
+
                 } else {
                     Toast.makeText(NewAdForm.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }

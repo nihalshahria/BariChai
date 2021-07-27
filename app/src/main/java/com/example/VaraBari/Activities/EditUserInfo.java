@@ -136,23 +136,20 @@ public class EditUserInfo extends AppCompatActivity {
         if(imageUploadTask != null && imageUploadTask.isInProgress()){
             Toast.makeText(this, "Upload in progress", Toast.LENGTH_SHORT).show();
         }else{
-            if(isImageChanged()
-                    || isChanged(editFullName, _fullName, "fullName")
-                    || isChanged(editPhoneNo, _phoneNo, "phoneNo")
-                    || isChanged(editAddress, _address, "address")){
-                Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), UserProfile.class));
-                finish();
-            }else{
-                Toast.makeText(this, "No change detected", Toast.LENGTH_SHORT).show();
-            }
+            isImageChanged();
+            isChanged(editFullName, _fullName, "fullName");
+            isChanged(editPhoneNo, _phoneNo, "phoneNo");
+            isChanged(editAddress, _address, "address");
+            Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), UserProfile.class));
+            finish();
         }
 
     }
 
     private boolean isChanged(EditText Field, String previousData, String childName){
         if(!previousData.equals(Field.getText().toString())){
-            databaseReference.child(uuid).child(childName).setValue(Field.getText().toString());
+            databaseReference.child(uuid).child(childName).setValue(Field.getText().toString().trim());
             return true;
         }else{
             return false;
